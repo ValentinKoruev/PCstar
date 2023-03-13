@@ -1,0 +1,13 @@
+@import "./colors";
+
+@mixin horizontalFlex {
+    display: flex;
+    flex-direction: row;
+}
+@mixin resetUnorderedList {
+    list-style: none;
+    li > * {
+        color: $textColor;
+        text-decoration: none;
+    }
+}
