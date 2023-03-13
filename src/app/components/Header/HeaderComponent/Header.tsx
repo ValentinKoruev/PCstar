@@ -1,7 +1,7 @@
 import styles from './Header.module.scss'
 
 const Header = () => {
-    return <header className={styles.header}>
+    return <header className={`container ${styles.header}`}>
         <div className={styles.navTopRow}>
             <h1>TITLEXD</h1>
             <form className={styles.searchBox}>
@@ -15,7 +15,17 @@ const Header = () => {
         </div>
         <nav className={styles.mainNav}>
             <ul>
-                <li><a href="#">Категории</a></li>
+                <li>
+                    <ul>
+                        <li>Категории</li>
+                        <li><a href="#">Компютри</a></li>
+                        <li><a href="#">Лаптопи</a></li>
+                        <li><a href="#">Компоненти</a></li>
+                        <li><a href="#">Монитори</a></li>
+                        <li><a href="#">Принтери и скенери</a></li>
+                        <li><a href="#">Проектори</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">Промоции</a></li>
                 <li><a href="#">Магазини</a></li>
                 <li><a href="#">За нас</a></li>
