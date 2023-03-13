@@ -16,7 +16,7 @@ const Header = () => {
         <nav className={styles.mainNav}>
             <ul>
                 <li>
-                    <ul>
+                    <ul className={styles.sideNav}>
                         <li>Категории</li>
                         <li><a href="#">Компютри</a></li>
                         <li><a href="#">Лаптопи</a></li>
