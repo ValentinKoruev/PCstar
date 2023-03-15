@@ -1,3 +1,5 @@
+import MenuOption from '@components/UI/MenuOption';
+
 import styles from './Header.module.scss'
 
 const Header = () => {
@@ -17,14 +19,36 @@ const Header = () => {
             <ul>
                 <li>
                     <ul className={styles.sideNav}>
-                        <li>Категории</li>
-                        <li><a href="#">Компютри</a></li>
+                        {/* <li>Категории</li> */}
+                        {/* <li><a href="#">Компютри</a></li>
                         <li><a href="#">Лаптопи</a></li>
                         <li><a href="#">Компоненти</a></li>
                         <li><a href="#">Монитори</a></li>
                         <li><a href="#">Принтери и скенери</a></li>
-                        <li><a href="#">Проектори</a></li>
-                    </ul>
+                        <li><a href="#">Проектори</a></li> */}
+                        
+                        <li>
+                            <MenuOption iconURL="/icons/monitor.png" text="Компютри" alt="monitor icon"/>
+                        </li>
+                        <li>
+                            <MenuOption iconURL="/icons/monitor.png" text="Компютри" alt="monitor icon"/>
+                        </li>
+                        <li>
+                            <MenuOption iconURL="/icons/monitor.png" text="Компютри" alt="monitor icon"/>
+                        </li>
+                        <li>
+                            <MenuOption iconURL="/icons/monitor.png" text="Компютри" alt="monitor icon"/>
+                        </li>
+                        <li>
+                            <MenuOption iconURL="/icons/monitor.png" text="Компютри" alt="monitor icon"/>
+                        </li>
+                        <li>
+                            <MenuOption iconURL="/icons/monitor.png" text="Компютри" alt="monitor icon"/>
+                        </li>
+                        <li>
+                            <MenuOption iconURL="/icons/monitor.png" text="Компютри" alt="monitor icon"/>
+                        </li>
+                       </ul>
                 </li>
                 <li><a href="#">Промоции</a></li>
                 <li><a href="#">Магазини</a></li>

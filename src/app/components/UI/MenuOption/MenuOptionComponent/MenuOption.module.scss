@@ -1,0 +1,16 @@
+@import '../../../../scss/mixins';
+
+.menuContainer {
+    padding: 1.1em;
+
+    @include horizontalFlex;
+    
+    align-items: center;
+    gap: 10px;
+    
+    .iconWrapper {
+        position: relative;
+        height: 1.5em;
+        width: 1.5em;
+    }
+}
