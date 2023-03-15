@@ -1,5 +1,5 @@
 import './globals.scss'
-import Header from './components/Header'
+import Header from '@components/Header'
 
 export const metadata = {
   title: 'PC STORE',
