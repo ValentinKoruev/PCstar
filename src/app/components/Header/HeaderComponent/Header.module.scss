@@ -3,13 +3,11 @@
 
 .header {
     width: 100vw;
-    
-    font-family: Arial, Helvetica, sans-serif;
 
     .navTopRow {
         width: 100%;
-        height: 60px;
-        background-color: red;
+        height: 140px;
+
         padding: 20px;
 
         @include horizontalFlex;
@@ -28,30 +26,67 @@
         }
     }
 
-    .mainNav {
+    .mainNavContainer {
+        width: 100%;
+        @include horizontalFlex;
+                    
+        gap: 10px;
+        .navEl {
+            padding: 1em;
+        }
+
         ul {
-            @include horizontalFlex;
             @include resetUnorderedList;
+        }
 
-            padding: 20px;
-            gap: 20px;
+        nav.megaMenuNav {
+            position: relative;
+            width: 25%;
+            min-width: 300px;
 
-            .sideNav {
-                border: 1px solid black;
+            div.megaMenuHeader {
+                background-color: #c81e1e;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+    
+                @include horizontalFlex;
+                align-items: center;
+                gap: 5px;
+    
+                span {
+                    color: #fefefe;
+                }
+    
+                svg {
+                    display: inline-block;
+                    width: 28px;
+                    height: 100%;
+                    path {
+                        fill: #fefefe;
+                    }
+                }
+            }
 
-                padding: 0;
+
+            ul.megaMenuOptions {
+                width: calc(100%);
+                position: absolute;
+                z-index: 2;
                 gap: 0px;
                 flex-direction: column;
+                border: 1px #C7C6C1 solid;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
 
-                li {
-                    user-select: none;
-                    cursor: pointer;
-                    font-size: 1.3rem;
-                }
+        }
 
-                li:hover {
-                    background-color: gray;
-                }
+        nav.offerNav {
+            
+            width: 100%;
+        
+            ul {
+                @include horizontalFlex;
             }
         }
     }

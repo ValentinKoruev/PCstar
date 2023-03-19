@@ -1,16 +1,42 @@
 @import '../../../../scss/mixins';
 
-.menuContainer {
-    padding: 1.1em;
+li.menuContainer {
+    
+    user-select: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 100;
 
-    @include horizontalFlex;
-    
-    align-items: center;
-    gap: 10px;
-    
-    .iconWrapper {
-        position: relative;
-        height: 1.5em;
-        width: 1.5em;
+    padding: 0.2em 0em;
+
+    &:hover {
+        font-weight: 700;
+        background-color: #f2f2f2;
     }
+
+    a.link {
+        @include horizontalFlex;
+        align-items: center;
+
+        padding: 0.8em 0.4em 0.8em 1em;
+        gap: 10px;
+
+        white-space: nowrap;
+
+        div.iconWrapper {
+            position: relative;
+            min-width: 1.6em;
+            min-height: 1.6em;
+        }
+
+        svg {
+            min-width: 28px;
+            margin-left: auto;
+            path {
+                stroke: #C7C6C1;
+                stroke-width: 2.5;
+            }
+        }
+    }
+
 }
