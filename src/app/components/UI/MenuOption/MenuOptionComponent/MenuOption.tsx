@@ -7,10 +7,11 @@ export interface IMenuOption {
     link: string,
     text: string,
     alt: string,
+    children?: JSX.Element
 }
 
 
-const MenuOption = ({iconURL, link, text, alt} : IMenuOption) => {
+const MenuOption = ({iconURL, link, text, alt, children} : IMenuOption) => {
     return (
         <li className={styles.menuContainer}>
             <Link href={link} className={styles.link}>
@@ -22,6 +23,12 @@ const MenuOption = ({iconURL, link, text, alt} : IMenuOption) => {
                     <path d="M8.489 31.975c-0.271 0-0.549-0.107-0.757-0.316-0.417-0.417-0.417-1.098 0-1.515l14.258-14.264-14.050-14.050c-0.417-0.417-0.417-1.098 0-1.515s1.098-0.417 1.515 0l14.807 14.807c0.417 0.417 0.417 1.098 0 1.515l-15.015 15.022c-0.208 0.208-0.486 0.316-0.757 0.316z"></path>
                 </svg>
             </Link>
+            <div className={styles.menuDropdownContainer}>
+                <div className={styles.whiteSpace}></div>
+                <div className={styles.dropdownContent}>
+                    
+                </div>
+            </div>
         </li>
     );
 }

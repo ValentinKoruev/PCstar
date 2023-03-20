@@ -2,7 +2,8 @@ import MenuOption from '@components/UI/MenuOption';
 import { Open_Sans } from 'next/font/google';
 const openSans = Open_Sans({
     weight: ['400', '700'],
-    subsets: ['cyrillic']
+    subsets: ['cyrillic'],
+    fallback: ['Helvetica', 'Arial', 'sans-serif']
 })
 
 import styles from './Header.module.scss'
@@ -39,8 +40,7 @@ const Header = () => {
                     <MenuOption iconURL="/icons/mobile-phone.png" link='#' text="Смартфони и таблети" alt="smartphone icon"/>
                     <MenuOption iconURL="/icons/tv.png" link='#' text="TV, аудио и видео" alt="tv icon"/>
                     <MenuOption iconURL="/icons/software.png" link='#' text="Софтуер" alt="software icon"/>
-                    <MenuOption iconURL="/icons/wifi-router.png" link='#' text="Мрежово оборудване" alt="router icon"/>
-                
+                    <MenuOption iconURL="/icons/wifi-router.png" link='#' text="Мрежово оборудване" alt="router icon"/>       
                 </ul>
             </nav>
             <nav className={styles.offerNav}>
