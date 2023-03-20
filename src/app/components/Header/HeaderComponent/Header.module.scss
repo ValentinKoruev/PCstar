@@ -74,14 +74,9 @@
                 gap: 0px;
                 flex-direction: column;
                 
-                li {
-                    border-right: 1px #C7C6C1 solid;
-                    border-left: 1px #C7C6C1 solid;
-                }
                 li:last-child {
                     border-bottom: 1px #C7C6C1 solid;
-                    border-bottom-left-radius: 5px;
-                    border-bottom-right-radius: 5px;
+                    border-bottom-left-radius: 15px;
                 }
             }
 

@@ -2,16 +2,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './MenuOption.module.scss';
 
+export interface IDropdownElement {
+    header: { text: string, href: string},
+    content: Array<{text: string, href: string}>
+}
+
 export interface IMenuOption {
     iconURL: string,
     link: string,
     text: string,
     alt: string,
+    dropdownList?: Array<IDropdownElement>,
     children?: JSX.Element
 }
 
 
-const MenuOption = ({iconURL, link, text, alt, children} : IMenuOption) => {
+const MenuOption = ({iconURL, link, text, alt, dropdownList, children} : IMenuOption) => {
     return (
         <li className={styles.menuContainer}>
             <Link href={link} className={styles.link}>
@@ -26,7 +32,22 @@ const MenuOption = ({iconURL, link, text, alt, children} : IMenuOption) => {
             <div className={styles.menuDropdownContainer}>
                 <div className={styles.whiteSpace}></div>
                 <div className={styles.dropdownContent}>
-                    
+                    {
+                        dropdownList && <> {dropdownList.map((element, key) => {
+                            return <div className={styles.dropdownListContainer} key={key}>
+                                <span className={styles.dropdownListHeader}><Link href={element.header.href}>{element.header.text}</Link></span>
+                                <ul className={styles.dropdownList}>
+                                    <> {
+                                        element.content.map((contentEl, key) => {
+                                            return <li className={styles.dropdownListElement} key={key}><Link href={contentEl.href}>{contentEl.text}</Link></li>
+                                        })
+                                    }
+                                    </>
+                                </ul>
+                            </div>
+                        })
+                    }</>
+                    }  
                 </div>
             </div>
         </li>

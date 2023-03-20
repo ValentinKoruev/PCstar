@@ -1,4 +1,4 @@
-import MenuOption from '@components/UI/MenuOption';
+import MenuOption, { IDropdownElement } from '@components/UI/MenuOption';
 import { Open_Sans } from 'next/font/google';
 const openSans = Open_Sans({
     weight: ['400', '700'],
@@ -11,6 +11,276 @@ import styles from './Header.module.scss'
 
 
 const Header = () => {
+
+    /* WILL TRANSFER THEM TO THEIR OWN JSON FILE OR WILL LOAD DYNAMICALLY FROM DB*/
+    const computerDropdown : IDropdownElement[] = [
+        { 
+            header: { text: "Компютри", href: "#"},
+            content: [
+                { text: "HP", href: '#'},
+                { text: "Dell", href: '#'},
+                { text: "Lenovo", href: '#'},
+                { text: "Fujitsu", href: '#'},
+                { text: "Мини компютри", href: '#'},
+            ] 
+        },
+        { 
+            header: { text: "Геймърски Компютри", href: "#"},
+            content: [
+                { text: "ASUS", href: '#'},
+                { text: "Dell", href: '#'},
+                { text: "Lenovo", href: '#'},
+                { text: "GIGABYTE", href: '#'},
+                { text: "Acer", href: '#'},
+            ] 
+        },
+        { 
+            header: { text: "Сървъри", href: "#"},
+            content: [
+                { text: "Dell", href: '#'},
+                { text: "Lenovo", href: '#'},
+                { text: "Fujistu", href: '#'},
+                { text: "HPE", href: '#'},
+            ] 
+        },     
+        { 
+            header: { text: "Процесори", href: "#"},
+            content: [
+                { text: "Intel i3", href: '#'},
+                { text: "Intel i5", href: '#'},
+                { text: "Intel i7", href: '#'},
+                { text: "Ryzen 3", href: '#'},
+                { text: "Ryzen 5", href: '#'},
+                { text: "Ryzen 7", href: '#'},
+            ] 
+        },  
+        { 
+            header: { text: "Видео карти", href: "#"},
+            content: [
+                { text: "ASUS", href: '#'},
+                { text: "GIGABYTE", href: '#'},
+                { text: "MSI", href: '#'},
+                { text: "ASRock", href: '#'},
+                { text: "Zotac", href: '#'},
+                { text: "EVGA", href: '#'},
+            ] 
+        }, 
+        { 
+            header: { text: "Памети", href: "#"},
+            content: [
+                { text: "DDR", href: '#'},
+                { text: "DDR2", href: '#'},
+                { text: "DDR3", href: '#'},
+                { text: "DDR4", href: '#'},
+                { text: "DDR5", href: '#'},
+            ] 
+        }, 
+        { 
+            header: { text: "HDD/SSD", href: "#"},
+            content: [
+                { text: "HDD", href: '#'},
+                { text: "SSD", href: '#'},
+                { text: "Външни HDD", href: '#'},
+            ] 
+        }, 
+        { 
+            header: { text: "Захранване", href: "#"},
+            content: [
+                { text: "be quiet!", href: '#'},
+                { text: "Super Flower", href: '#'},
+                { text: "Cooler Master", href: '#'},
+                { text: "Corsair", href: '#'},
+                { text: "COUGAR", href: '#'},
+            ] 
+        }, 
+    ] 
+    const laptopDropdown : IDropdownElement[] = [
+        { 
+            header: { text: "Лаптопи", href: "#"},
+            content: [
+                { text: "Apple", href: '#'},
+                { text: "ASUS", href: '#'},
+                { text: "Dell", href: '#'},
+                { text: "Lenovo", href: '#'},
+                { text: "Toshiba", href: '#'},
+            ] 
+        },
+        { 
+            header: { text: "Геймърски Лаптопи", href: "#"},
+            content: [
+                { text: "ASUS", href: '#'},
+                { text: "Dell", href: '#'},
+                { text: "Lenovo", href: '#'},
+                { text: "HP", href: '#'},
+                { text: "Razer", href: '#'},
+                { text: "Alienware", href: '#'},
+            ] 
+        },
+        { 
+            header: { text: "Адаптери", href: "#"},
+            content: [
+                { text: "ASUS", href: '#'},
+                { text: "Toshiba", href: '#'},
+                { text: "Lenovo", href: '#'},
+                { text: "Acer", href: '#'},
+                { text: "HP", href: '#'},
+                { text: "Sony", href: '#'},
+                { text: "Samsung", href: '#'},
+            ] 
+        },     
+        { 
+            header: { text: "Батерии", href: "#"},
+            content: [] 
+        },  
+        { 
+            header: { text: "Видео карти", href: "#"},
+            content: [
+                { text: "ASUS", href: '#'},
+                { text: "GIGABYTE", href: '#'},
+                { text: "MSI", href: '#'},
+                { text: "ASRock", href: '#'},
+                { text: "Zotac", href: '#'},
+                { text: "EVGA", href: '#'},
+            ] 
+        }, 
+        { 
+            header: { text: "Памети", href: "#"},
+            content: [
+                { text: "DDR", href: '#'},
+                { text: "DDR2", href: '#'},
+                { text: "DDR3", href: '#'},
+                { text: "DDR4", href: '#'},
+                { text: "DDR5", href: '#'},
+            ] 
+        }, 
+        { 
+            header: { text: "HDD/SSD", href: "#"},
+            content: [
+                { text: "HDD", href: '#'},
+                { text: "SSD", href: '#'},
+                { text: "Външни HDD", href: '#'},
+            ] 
+        }, 
+        { 
+            header: { text: "Захранване", href: "#"},
+            content: [
+                { text: "Apple", href: '#'},
+                { text: "ASUS", href: '#'},
+                { text: "Dell", href: '#'},
+                { text: "Fortron", href: '#'},
+                { text: "Hama", href: '#'},
+            ] 
+        },     
+    ] 
+    const monitorDropdown : IDropdownElement[] = [
+        { 
+            header: { text: '15" - 17"', href: "#"},
+            content: [
+                { text: "AOC", href: '#'},
+                { text: "AOPEN", href: '#'},
+                { text: "ASUS", href: '#'},
+                { text: "HP", href: '#'},
+            ] 
+        },
+        { 
+            header: { text: '17" - 21"', href: "#"},
+            content: [
+                { text: "AOC", href: '#'},
+                { text: "ACER", href: '#'},
+                { text: "ASUS", href: '#'},
+                { text: "Philips", href: '#'},
+                { text: "Dell", href: '#'},
+                { text: "LG", href: '#'},
+            ] 
+        },
+        { 
+            header: { text: '21" - 24"', href: "#"},
+            content: [
+                { text: "AOC", href: '#'},
+                { text: "ACER", href: '#'},
+                { text: "ASUS", href: '#'},
+                { text: "Philips", href: '#'},
+                { text: "BenQ", href: '#'},
+                { text: "Lenovo", href: '#'},
+            ] 
+        },
+        { 
+            header: { text: '24" - 27"', href: "#"},
+            content: [
+                { text: "AOC", href: '#'},
+                { text: "ACER", href: '#'},
+                { text: "Apple", href: '#'},
+                { text: "ASUS", href: '#'},
+                { text: "Samsung", href: '#'},
+                { text: "HP", href: '#'},
+            ] 
+        },
+    ] 
+    const peripheralsDropdown : IDropdownElement[] = [
+        { 
+            header: { text: 'Мишки', href: "#"},
+            content: [
+                { text: "Logitech", href: '#'},
+                { text: "COUGAR", href: '#'},
+                { text: "Razer", href: '#'},
+                { text: "Canyon", href: '#'},
+                { text: "SteelSeries", href: '#'},
+                { text: "Trust", href: '#'},
+                { text: "Corsair", href: '#'},
+                { text: "A4TECH", href: '#'},
+            ] 
+        },
+        { 
+            header: { text: 'Клавиатури', href: "#"},
+            content: [
+                { text: "Logitech", href: '#'},
+                { text: "COUGAR", href: '#'},
+                { text: "Razer", href: '#'},
+                { text: "Canyon", href: '#'},
+                { text: "SteelSeries", href: '#'},
+                { text: "Trust", href: '#'},
+                { text: "Corsair", href: '#'},
+                { text: "A4TECH", href: '#'},
+            ] 
+        },
+        { 
+            header: { text: 'Слушалки', href: "#"},
+            content: [
+                { text: "Apple", href: '#'},
+                { text: "Sony", href: '#'},
+                { text: "JBL", href: '#'},
+                { text: "Logitech", href: '#'},
+                { text: "Hama", href: '#'},
+                { text: "Razer", href: '#'},
+                { text: "Canyon", href: '#'},
+                { text: "COUGAR", href: '#'},
+            ] 
+        },
+        { 
+            header: { text: 'Микрофони', href: "#"},
+            content: [
+                { text: "Logitech", href: '#'},
+                { text: "Razer", href: '#'},
+                { text: "Trust", href: '#'},
+                { text: "Kingston", href: '#'},
+                { text: "Hama", href: '#'},
+                { text: "A4TECH", href: '#'},
+            ] 
+        },
+        { 
+            header: { text: 'Уеб камери', href: "#"},
+            content: [
+                { text: "Logitech", href: '#'},
+                { text: "Microsoft", href: '#'},
+                { text: "Razer", href: '#'},
+                { text: "Canyon", href: '#'},
+                { text: "Trust", href: '#'},
+                { text: "A4TECH", href: '#'},
+            ] 
+        },
+    ]
+
+
     return <header className={`container ${openSans.className} ${styles.header}`}>
         <div className={styles.navTopRow}>
             <h1>TITLEXD</h1>
@@ -32,10 +302,10 @@ const Header = () => {
                     <span>Категории</span>
                 </div>
                 <ul className={styles.megaMenuOptions}>
-                    <MenuOption iconURL="/icons/desktop-pc.png" link='#' text="Компютри" alt="computer icon"/>
-                    <MenuOption iconURL="/icons/laptop.png" link='#' text="Лаптопи" alt="laptop icon"/>
-                    <MenuOption iconURL="/icons/monitor.png" link='#' text="Монитори" alt="monitor icon"/>
-                    <MenuOption iconURL="/icons/ram.png" link='#' text="Компоненти и периферия" alt="ram icon"/>
+                    <MenuOption iconURL="/icons/desktop-pc.png" link='#' text="Компютри и компоненти" dropdownList={computerDropdown} alt="computer icon"/>
+                    <MenuOption iconURL="/icons/laptop.png" link='#' text="Лаптопи и компоненти" dropdownList={laptopDropdown} alt="laptop icon"/>
+                    <MenuOption iconURL="/icons/monitor.png" link='#' text="Монитори" dropdownList={monitorDropdown} alt="monitor icon"/>
+                    <MenuOption iconURL="/icons/ram.png" link='#' text="Аксесоари и периферия" dropdownList={peripheralsDropdown} alt="ram icon"/>
                     <MenuOption iconURL="/icons/printer.png" link='#' text="Принтери и консумативи" alt="printer icon"/>
                     <MenuOption iconURL="/icons/mobile-phone.png" link='#' text="Смартфони и таблети" alt="smartphone icon"/>
                     <MenuOption iconURL="/icons/tv.png" link='#' text="TV, аудио и видео" alt="tv icon"/>
