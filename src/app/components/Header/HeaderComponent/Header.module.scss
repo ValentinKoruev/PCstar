@@ -42,16 +42,16 @@
             position: relative;
             width: 25%;
             min-width: 300px;
-
+            
             div.megaMenuHeader {
                 background-color: #c81e1e;
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
-    
+                
                 @include horizontalFlex;
                 align-items: center;
                 gap: 5px;
-    
+                
                 span {
                     color: #fefefe;
                 }
@@ -68,15 +68,19 @@
 
 
             ul.megaMenuOptions {
-                
-                width: 100%;
                 position: absolute;
-                gap: 0px;
+
+                display: flex;
                 flex-direction: column;
+                z-index: 1000;
+
+                width: 100%;
+                height: 460px;
                 
                 li:last-child {
                     border-bottom: 1px #C7C6C1 solid;
                     border-bottom-left-radius: 15px;
+                    padding-bottom: 0;
                 }
             }
 
