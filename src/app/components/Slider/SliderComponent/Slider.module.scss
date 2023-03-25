@@ -1,5 +1,122 @@
+$buttonSize: 64px;
+$slideSelectButtonSize: 16px;
+
 section.sliderContainer {
-    background-color: aqua;
+    display: flex;
     width: 100%;
     height: 460px;
+
+    .whiteSpace {
+        width: 25%;
+        height: 100%;
+        min-width: 300px;
+        z-index: -1;
+    }
+    
+    .slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: aqua;
+        overflow: hidden;
+
+        .sliderProgressContainer {
+            position: absolute;    
+            width: 100%;
+            z-index: 1;
+            bottom: 0;
+
+            .slideSelectButtonContainer {
+                width: fit-content;
+                display: flex;
+                gap: 10px;
+
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 2%;
+
+                .slideSelectButton {
+                    width: $slideSelectButtonSize;
+                    height: $slideSelectButtonSize;
+
+                    cursor: pointer;
+
+                    border: 0;
+                    border-radius: 100%;
+                    
+                    background-color: black;
+                    opacity: 0.4;
+                }
+                .slideSelectButtonActive {
+                    width: $slideSelectButtonSize;
+                    height: $slideSelectButtonSize;
+
+                    cursor: pointer;
+
+                    border: 0;
+                    border-radius: 100%;
+                    
+                    background-color: red;
+                    opacity: 0.4;
+                }
+            }
+        }
+
+        .sliderButtonContainer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            .sliderButton {
+                position: absolute;
+                width: $buttonSize;
+                height: $buttonSize;
+                z-index: 2;
+                top: 50%;
+                place-items: center;
+                background: none;
+                border: none;
+                cursor: pointer;
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    stroke: #C7C6C1;
+                    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .2));
+                    transition: stroke 0.05s ease-in;
+                }
+                
+                &:hover {
+                    svg {
+                        stroke: #fefefe;
+                    }
+                }
+            }
+            .sliderButtonLeft {
+                left: 0;
+                transform: translate(10%, -50%);
+            }
+            .sliderButtonRight {
+                right: 0;
+                transform: translate(-10%, -50%);
+            }
+        }
+        
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            
+            .slideImageContainer {
+                position: relative;
+                width: 100%;
+                flex: 1 0 100%;
+                object-fit: cover;
+            }
+
+            img {
+                width: 100%;
+                flex: 1 0 100%;
+                object-fit: cover;
+            }
+        }
+    }
 }
