@@ -84,13 +84,13 @@ const Slider = ({images=[]} : ISlider) => {
     const handleTransitionEnd: TransitionEventHandler<HTMLDivElement> = (e) => {
         e.preventDefault();
 
-        if(slide == 0) {
+        if(slide <= 0) {
             setSliderStyle({
                 ...sliderStyle,
                 transition: `none`
             })
             setSlide(images.length - 2);
-        } else if(slide == images.length - 1) {
+        } else if(slide >= images.length - 1) {
             setSliderStyle({
                 ...sliderStyle,
                 transition: `none`
