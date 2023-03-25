@@ -125,7 +125,7 @@ const Slider = ({images=[]} : ISlider) => {
    
 
     return (
-        <section className={styles.sliderContainer}>
+        <section className={`container ${styles.sliderContainer}`}>
             <div className={styles.whiteSpace}></div>
             <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.slider}>
                 <div className={styles.sliderProgressContainer}>

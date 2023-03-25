@@ -30,7 +30,7 @@ export default async function Home() {
   
   
   return (
-    <main className='container'>
+    <main>
       <Slider images={formatImageArray(images)}/>
     </main>
   )
