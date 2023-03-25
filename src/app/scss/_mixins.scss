@@ -7,7 +7,7 @@
 @mixin resetUnorderedList {
     list-style: none;
     li > * {
-        color: $textColor;
+        color: $blackColor;
         text-decoration: none;
     }
 }

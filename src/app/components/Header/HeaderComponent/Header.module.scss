@@ -44,7 +44,7 @@
             min-width: 300px;
             
             div.megaMenuHeader {
-                background-color: #c81e1e;
+                background-color: $mainRed;
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
                 
@@ -53,7 +53,7 @@
                 gap: 5px;
                 
                 span {
-                    color: #fefefe;
+                    color: $whiteColor;
                 }
     
                 svg {
@@ -61,7 +61,7 @@
                     width: 28px;
                     height: 100%;
                     path {
-                        fill: #fefefe;
+                        fill: $whiteColor;
                     }
                 }
             }
@@ -78,7 +78,7 @@
                 height: 460px;
                 
                 li:last-child {
-                    border-bottom: 1px #C7C6C1 solid;
+                    border-bottom: 1px $whiteSecondaryColor solid;
                     border-bottom-left-radius: 15px;
                     padding-bottom: 0;
                 }
