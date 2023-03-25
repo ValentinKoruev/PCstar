@@ -1,0 +1,95 @@
+@import '../../../../scss/mixins';
+@import '../../../../scss/colors';
+
+.itemListContainer {
+    @include horizontalFlex;
+    @include resetUnorderedList;
+    
+    width: 100%;
+    flex-wrap: wrap;
+    
+    .itemCard {
+        width: calc(100% / 5);
+        min-width: 180px;
+        
+        .linkContainer {
+            display: flex;
+            flex-direction: column;
+            
+            padding: 0.8em;
+            gap: 10px;
+            
+            .title {
+                font-size: 1.1em;
+                height: 2.5em;
+            }
+            
+            .imageContainer {
+                position: relative;
+                width: 100%;
+                height: 180px;
+                display: flex;
+                place-items: center;
+                overflow: hidden;
+                
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: 0.1s scale ease-in;
+                }
+            }
+        }
+
+        .priceBuyContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            
+            padding: 0.8em;
+            padding-top: 0;
+
+            .price {
+                position: relative;
+                font-size: 1.2em;
+                color: $mainRed;
+            }
+
+            .button {
+                padding: 0.3em;
+                display: grid;
+                place-items: center;
+
+                text-decoration: none;
+            
+                color:black;
+
+                transition: 0.1s color ease-in-out, 0.1s background-color ease-in-out;
+            }
+        }
+
+        &:hover {
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+       
+            .title {
+                color: $mainRed;
+            }
+
+            img {
+                scale: 110%;
+            }
+
+            .priceBuyContainer {
+
+                .price {
+                    transform: translateY(50%, 50%);
+                }
+
+                .button {
+                    color: $mainRed;
+                }
+            }
+        }
+    }
+}
