@@ -1,11 +1,42 @@
-
+@import './scss/colors';
+@import './scss/mixins';
 
 .promoContainer {
-  margin-top: 10vh;
+  margin-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  .header {
+    font-size: 2em;
+    text-align: center;
+    padding: 1em; 
+    background-color: $blackColor;
+    span {
+      background: #FF416C;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      
+    }
+  } 
+
+  .promoItemsContainer {
+    width: 100%;
+    @include horizontalFlex;
+    flex: 1 0 100%;
+    .topItemContainer {
+      width: 50%;
+      min-width: 400px;
+      background-color: red;
+    }
+
+    .promoItemListContainer {
+        color: $blackColor;
+        background-color: $whiteColor;
+      }
+  }
   
-    .header {
-        font-size: 2em;
-        text-align: center;
-        margin-bottom: 20px;
-    } 
 }

@@ -26,6 +26,7 @@ const items: Array<IItem> = [
     title: "Lenovo ThinkCentre M83",
     image: {src: '/images/products/pc-1.jpg', alt: "item image"},
     price: 699,
+    prevPrice: 42,
     link: '#'
   },
   {
@@ -52,6 +53,12 @@ const items: Array<IItem> = [
     price: 1200,
     link: '#'
   },
+  {
+    title: "Stupid rodent",
+    image: {src: '/images/products/rodent.jpg', alt: "item image"},
+    price: 100,
+    link: '#'
+  },
 ]
 
 export default async function Home() {
@@ -71,9 +78,16 @@ export default async function Home() {
   return (
     <main className={openSans.className}>
       <Slider images={formatImageArray(images)}/>
-      <section className={`container ${styles.promoContainer}`}>
-        <h2 className={styles.header}>Промоции</h2>
-        <ItemList items={items}/>
+      <section className={`${styles.promoContainer}`}>
+        <h2 className={styles.header}><span>Топ Оферти</span></h2>
+        <div className={`container ${styles.promoItemsContainer}`}>
+          <div className={styles.topItemContainer}>
+            d
+          </div>
+          <div className={styles.promoItemListContainer}>
+              <ItemList elements={3} items={items}/>
+          </div>
+        </div>
       </section>
     </main>
   )

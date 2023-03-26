@@ -6,19 +6,22 @@
     @include resetUnorderedList;
     
     width: 100%;
+    
+    color: inherit;
+
     flex-wrap: wrap;
+    justify-content: center;
     
     .itemCard {
-        width: calc(100% / 5);
-        min-width: 180px;
-        
+        color: inherit;
+        min-width: 240px;
+        padding: 1em;
+
         .linkContainer {
             display: flex;
             flex-direction: column;
             
-            padding: 0.8em;
-            gap: 10px;
-            
+            color: inherit;
             .title {
                 font-size: 1.1em;
                 height: 2.5em;
@@ -44,34 +47,41 @@
         .priceBuyContainer {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
             align-items: center;
             
-            padding: 0.8em;
-            padding-top: 0;
+
+            padding: 1em 0.8em 0 0.8em;
+            color: inherit;
 
             .price {
                 position: relative;
-                font-size: 1.2em;
+                font-size: 1.1em;
                 color: $mainRed;
+
+                .prevPrice {
+                    font-size: 0.8em;
+                    color: #848484;
+                    text-decoration: line-through;
+                }
             }
 
             .button {
-                padding: 0.3em;
                 display: grid;
                 place-items: center;
 
+                float: right;
+
                 text-decoration: none;
-            
-                color:black;
+
+                color: inherit;
 
                 transition: 0.1s color ease-in-out, 0.1s background-color ease-in-out;
             }
         }
 
         &:hover {
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-       
+            box-shadow: rgba(99, 99, 99, 0.7) 0px 2px 8px 0px;
+
             .title {
                 color: $mainRed;
             }
@@ -82,14 +92,26 @@
 
             .priceBuyContainer {
 
-                .price {
-                    transform: translateY(50%, 50%);
-                }
-
                 .button {
                     color: $mainRed;
                 }
             }
+        }
+
+        &.row2 {
+            width: calc(100% / 2);
+        }
+        &.row3 {
+            width: calc(100% / 3);
+        }
+        &.row4 {
+            width: calc(100% / 4);
+        }
+        &.row5 {
+            width: calc(100% / 5);
+        }
+        &.row6 {
+            width: calc(100% / 6);
         }
     }
 }
