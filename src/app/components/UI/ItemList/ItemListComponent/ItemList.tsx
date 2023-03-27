@@ -36,10 +36,10 @@ const ItemList = ({items, className, elements} : {items: Array<IItem>, className
                             </div>
                         </Link>
                         <div className={styles.priceBuyContainer}>
-                            <span className={styles.price}>
-                                {item.price.toFixed(2)} лв. 
-                                {item.prevPrice && <span className={styles.prevPrice}>{item.prevPrice.toFixed(2)}</span>}
-                            </span>
+                            <div className={styles.priceContainer}>
+                                {item.prevPrice && <span className={styles.prevPrice}>{item.prevPrice.toFixed(2)} лв.</span>}
+                                <span className={styles.price}>{item.price.toFixed(2)} лв.</span>
+                            </div>
                             <Link href={item.link} className={styles.button}>
                                 Виж Още
                             </Link>

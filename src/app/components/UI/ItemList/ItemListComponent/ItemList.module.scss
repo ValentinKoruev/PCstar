@@ -11,16 +11,26 @@
 
     flex-wrap: wrap;
     justify-content: center;
+
     
     .itemCard {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        padding: 0.8em;
+        
         color: inherit;
-        min-width: 240px;
-        padding: 1em;
+        
+        border-right: 1px #efecec solid;
+        
+        &:last-child {
+            border-right: none;
+        }
 
         .linkContainer {
             display: flex;
             flex-direction: column;
-            
             color: inherit;
             .title {
                 font-size: 1.1em;
@@ -47,17 +57,20 @@
         .priceBuyContainer {
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
             align-items: center;
-            
-
-            padding: 1em 0.8em 0 0.8em;
             color: inherit;
+            min-width: fit-content;
 
-            .price {
-                position: relative;
-                font-size: 1.1em;
-                color: $mainRed;
-
+            .priceContainer {
+                display: flex;
+                flex-direction: column;
+                
+                .price {
+                    position: relative;
+                    font-size: 1.1em;
+                    color: $mainRed;    
+                }
                 .prevPrice {
                     font-size: 0.8em;
                     color: #848484;
@@ -68,12 +81,16 @@
             .button {
                 display: grid;
                 place-items: center;
-
-                float: right;
-
+                justify-self: right;
+                
+                padding: 0.7em;
+                height: fit-content;
+                border-radius: 5px;
+                background-color: #efecec;                ;
+                
+                font-size: 0.8em;
+                color: $whiteColor;
                 text-decoration: none;
-
-                color: inherit;
 
                 transition: 0.1s color ease-in-out, 0.1s background-color ease-in-out;
             }
@@ -93,7 +110,7 @@
             .priceBuyContainer {
 
                 .button {
-                    color: $mainRed;
+                    background-color: $mainRed;
                 }
             }
         }
