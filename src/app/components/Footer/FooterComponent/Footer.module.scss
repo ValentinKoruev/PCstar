@@ -78,13 +78,111 @@ $textFieldBorderRadius: 2.5em;
         .navListsContainer {
             display: flex;
             flex-direction: row;
-            .navList {
-                @include resetUnorderedList($whiteColor);
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
+            height: 100%;
+            width: 100%;
+
+            padding-top: 1.5em;
+            
+            .socialsContainer {
+                color: $whiteColor;
+                width: 40%;
+                height: 100%;
+                .socialsCol {
+                    width: fit-content;
+                    height: 100%;
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    .socialsList {
+                        display: flex;
+                        flex-direction: row;
+                        
+                        width: 100%;
+
+                        justify-content: center;
+                        align-items: center;
+                        gap: 3%;
+                        
+                        @include resetUnorderedList($whiteColor);
+                    
+                        .socialsItem {
+                            width: 2.2em;
+                            height: 2.2em;
+    
+                            svg {
+                                fill: $whiteColor;
+                                transition: 0.1s fill ease-in;
+                            }
+                            .facebookIcon {
+                                &:hover {
+                                    svg {
+                                        fill: #4267B2;
+                                    }
+                                }
+                            }
+                            .twitterIcon {
+                                &:hover {
+                                    svg {
+                                        fill: #1DA1F2;
+                                    }
+                                }
+                            }
+                            .instagramIcon {
+                                &:hover {
+                                    svg {
+                                        fill: #E1306C;
+                                    }
+                                }
+                            }
+                            .youtubeIcon {
+                                &:hover {
+                                    svg {
+                                        fill: #FF0000;
+                                    }
+                                }
+                            }                       
+                        }
+                    }
+                }
+
                 
             }
+
+            .innerNavContainer {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                justify-content: center;
+                gap: 30px;
+                .navList {
+                    color: $whiteColor;
+
+                    .navHeading {
+                        color: inherit;
+                        font-weight: 400;
+                        font-size: 1.2em;
+                        margin-bottom: 5px;
+                    }
+                    .navLinks {
+                        @include resetUnorderedList(inherit);
+                        line-height: 1.8em;
+                        font-size: 1em;
+                        font-weight: 300;
+                    }
+                }
+
+
+            }
+
         }
+    }
+    .copyrightContainer {
+        width: 100%;
+        background-color: $blackColor;
+        padding: 1em;
+        text-align: center;
+        color: $whiteColor;
     }
 }
