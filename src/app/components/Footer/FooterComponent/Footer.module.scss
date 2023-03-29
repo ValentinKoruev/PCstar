@@ -1,0 +1,90 @@
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+
+$textFieldBorderRadius: 2.5em;
+
+.footer {
+    margin-top: 20vh;
+    .newsletterContainer {
+        background-color: $mainRed;
+        height: 150px;
+
+        .newsletterForm {
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            .newsText {
+                color: $whiteColor;
+                font-size: 1.5em;
+                width: 40%;
+            }
+
+            
+            .inputContainer {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                font-size: 1em;
+                width: 50%;
+
+                .textField {
+                    padding: 1.2rem;
+                    height:fit-content;
+                    width: 75%;
+                    border: 0;
+                    border-bottom-left-radius: $textFieldBorderRadius;
+                    border-top-left-radius: $textFieldBorderRadius;
+                    font-size: inherit;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+    
+                .submitButtonContainer {
+                    height: fit-content;
+                    padding: 1.1rem;
+                    padding-right: 1.5rem;
+                    font-size: inherit;
+                    border-bottom-right-radius: $textFieldBorderRadius;
+                    border-top-right-radius: $textFieldBorderRadius;
+                    background-color: $blackColor;
+                    color: $whiteColor;
+                    .submitButton {
+                        border: 0;
+                        text-align: center;
+                        font-size: inherit;
+                        background-color: inherit;
+                        color: inherit;
+                        cursor: inherit;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        background-color: $blackActiveColor;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .footerNav {
+        background-color: $blackActiveColor;
+        width: 100%;
+        height: 50vh;
+        .navListsContainer {
+            display: flex;
+            flex-direction: row;
+            .navList {
+                @include resetUnorderedList($whiteColor);
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                
+            }
+        }
+    }
+}
