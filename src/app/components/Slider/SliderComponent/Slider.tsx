@@ -112,7 +112,6 @@ const Slider = ({images=[]} : ISlider) => {
     const handleMouseEnter : MouseEventHandler<HTMLDivElement> = (e) => {
         e.preventDefault();
 
-        console.log('enter');
         clearInterval(intervalId);
     }
 
