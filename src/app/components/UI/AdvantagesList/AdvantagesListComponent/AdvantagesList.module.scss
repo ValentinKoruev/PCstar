@@ -6,7 +6,7 @@ $numberOfAdv: 5;
 .advantagesContainer {
     .advantagesList {
         width: 100%;
-        height: 100%;
+        height: max-content;
         @include horizontalFlex;
         @include resetUnorderedList($blackColor);
         border: 1px $whiteSecondaryColor solid;
@@ -15,7 +15,7 @@ $numberOfAdv: 5;
         .advantagesElement {
             padding: 2em;
             width: calc(100% / $numberOfAdv);
-            height: 100%;
+            font-size: 1em;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -34,6 +34,7 @@ $numberOfAdv: 5;
             }
             .text {
                 text-align: center;
+                height: 3.5em;
             }
         }
     }

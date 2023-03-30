@@ -87,6 +87,7 @@ export default async function Home() {
   return (
     <main className={`${openSans.className} ${styles.main}`}>
       <Slider images={formatImageArray(images)}/>
+      <AdvantagesList />
       <section className={`${styles.promoContainer}`}>
         <h2 className={styles.header}><span>Топ Оферти</span></h2>
         <div className={`container ${styles.promoItemsContainer}`}>
@@ -109,7 +110,6 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <AdvantagesList />
     </main>
   )
 }
