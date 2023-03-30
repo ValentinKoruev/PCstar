@@ -149,7 +149,7 @@ const Slider = ({images=[]} : ISlider) => {
                         images.map((image, index) => {
                             return (
                                 <div key={index} className={styles.slideImageContainer}>
-                                    <Image src={image.src} alt={image.alt} fill={true}/>
+                                    <Image src={image.src} alt={image.alt} fill={true} loading={'eager'}/>
                                 </div>
                             )
                         })
