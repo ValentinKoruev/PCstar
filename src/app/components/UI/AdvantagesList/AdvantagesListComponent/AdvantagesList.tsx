@@ -18,7 +18,7 @@ const AdvantagesList = () => {
                 {
                     data.map((element, idx) => {
                         return (
-                            <li className={styles.advantagesElement}>
+                            <li key={idx} className={styles.advantagesElement}>
                                 <div className={styles.imageContainer}>
                                     <Image src={element.iconSrc} alt={element.text} fill={true}/>
                                 </div>
