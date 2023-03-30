@@ -1,0 +1,40 @@
+@import '../../../../scss/mixins';
+@import '../../../../scss/colors';
+
+$numberOfAdv: 5;
+
+.advantagesContainer {
+    .advantagesList {
+        width: 100%;
+        height: 100%;
+        @include horizontalFlex;
+        @include resetUnorderedList($blackColor);
+        border: 1px $whiteSecondaryColor solid;
+        border-radius: 1.5em;
+        
+        .advantagesElement {
+            padding: 2em;
+            width: calc(100% / $numberOfAdv);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+            border-right: 1px $whiteSecondaryColor solid;
+
+            &:last-child {
+                border-right: 0;
+            }
+
+            .imageContainer {
+                position: relative;
+                width: 32px;
+                height: 32px;
+            }
+            .text {
+                text-align: center;
+            }
+        }
+    }
+}

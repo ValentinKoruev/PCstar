@@ -4,13 +4,14 @@ import styles from './page.module.scss'
 
 import Slider from '@components/Slider'
 import ItemList, { IItem } from '@components/UI/ItemList'
+import AdvantagesList from '@components/UI/AdvantagesList';
 
 import { Open_Sans } from 'next/font/google';
 const openSans = Open_Sans({
     weight: ['400', '700'],
-    subsets: ['latin', 'cyrillic'],
+    subsets: ['cyrillic'],
     fallback: ['Helvetica', 'Arial', 'sans-serif']
-})
+}) 
 
 const images = [
   {src: '/images/slider/image-1.jpg', alt: 'slider img'},
@@ -84,7 +85,7 @@ export default async function Home() {
   
   
   return (
-    <main className={openSans.className}>
+    <main className={`${openSans.className} ${styles.main}`}>
       <Slider images={formatImageArray(images)}/>
       <section className={`${styles.promoContainer}`}>
         <h2 className={styles.header}><span>Топ Оферти</span></h2>
@@ -108,6 +109,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
+      <AdvantagesList />
     </main>
   )
 }
