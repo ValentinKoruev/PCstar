@@ -5,10 +5,12 @@ $backgroundColor: $whiteColor;
 .header {
     z-index: 1000;
     background-color: $backgroundColor;
+
     
     &.active {
         position: sticky;
         top: 0;
+        box-shadow: 0 2px 5px -2px $blackColor;
     }
     .headerContent {
         width: 100%;
@@ -23,6 +25,11 @@ $backgroundColor: $whiteColor;
             align-items: center;
             justify-content: space-between;
             
+            .title {
+                color: $blackColor;
+                text-decoration: none;
+            }
+
             .userMenu {
                 @include horizontalFlex;
                 @include resetUnorderedList($blackColor);

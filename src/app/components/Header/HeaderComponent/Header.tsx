@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link';
 import MenuOption, { IDropdownElement } from '@components/UI/MenuOption';
 import { Open_Sans } from 'next/font/google';
 import { MouseEventHandler, useState } from 'react';
@@ -298,14 +299,14 @@ const Header = ({isStatic=false} : {isStatic?: boolean}) => {
     return <header className={`${openSans.className} ${styles.header} ${!isStatic ? styles.active : ''}`}>
         <div className={`container ${styles.headerContent}`}>
             <div className={styles.navTopRow}>
-                <h1>TITLEXD</h1>
+                <Link href='/' className={styles.title}><h1>PCstar</h1></Link>
                 <form className={styles.searchBox}>
                     <input type='text'/>
                 </form>
                 <ul className={styles.userMenu}>
-                    <li><a href="#">Профил</a></li>
-                    <li><a href="#">Любими</a></li>
-                    <li><a href="#">Количка</a></li>
+                    <li><Link href="#">Профил</Link></li>
+                    <li><Link href="#">Любими</Link></li>
+                    <li><Link href="#">Количка</Link></li>
                 </ul>
             </div>
             <div className={styles.mainNavContainer}>
@@ -333,10 +334,10 @@ const Header = ({isStatic=false} : {isStatic?: boolean}) => {
                 </nav>
                 <nav className={styles.offerNav}>
                     <ul>
-                        <li className={styles.navEl}><a href="#">Промоции</a></li>
-                        <li className={styles.navEl}><a href="#">Магазини</a></li>
-                        <li className={styles.navEl}><a href="#">За нас</a></li>
-                        <li className={styles.navEl}><a href="#">Контакти</a></li>
+                        <li className={styles.navEl}><Link href="#">Промоции</Link></li>
+                        <li className={styles.navEl}><Link href="/test">Магазини</Link></li>
+                        <li className={styles.navEl}><Link href="/about">За нас</Link></li>
+                        <li className={styles.navEl}><Link href="/contacts">Контакти</Link></li>
                     </ul>
                 </nav>
             </div> 
