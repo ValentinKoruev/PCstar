@@ -89,7 +89,6 @@ export default async function Home() {
   
   return (
     <React.Fragment>
-      <Header isStatic={true}/>
       <main className={`${openSans.className} ${styles.main}`}>
         <Slider images={formatImageArray(images)}/>
         <AdvantagesList />
@@ -116,7 +115,6 @@ export default async function Home() {
           </div>
         </section>
       </main>
-      <Footer />
     </React.Fragment>
   )
 }

@@ -1,4 +1,4 @@
-import './globals.scss';
+import '../globals.scss';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 
@@ -15,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <Header isStatic={true} />
+          {children}
+        <Footer />
       </body>
     </html>
   )
