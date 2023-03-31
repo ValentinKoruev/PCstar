@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 import styles from './page.module.scss'
 
+import Header from '@components/Header';
+import Footer from '@components/Footer';
 import Slider from '@components/Slider'
 import ItemList, { IItem } from '@components/UI/ItemList'
 import AdvantagesList from '@components/UI/AdvantagesList';
@@ -85,31 +88,35 @@ export default async function Home() {
   
   
   return (
-    <main className={`${openSans.className} ${styles.main}`}>
-      <Slider images={formatImageArray(images)}/>
-      <AdvantagesList />
-      <section className={`${styles.promoContainer}`}>
-        <h2 className={styles.header}><span>Топ Оферти</span></h2>
-        <div className={`container ${styles.promoItemsContainer}`}>
-          <div className={styles.topItemContainer}>
-            <h2 className={styles.topItemHeader}>Топ Оферта</h2>
-            <Link href='#' className={styles.topItemImageContainer}>
-              <Image src='/images/products/waltuh.jfif' alt='top item' fill={true}/>
-            </Link>
-            <div className={styles.topItemContent}>
-              <span className={styles.topItemTitle}>Арнолд Уайт</span>
-              <div className={styles.topItemPriceContainer}>
-                <span className={styles.topItemPrice}>500.00 лв. <span className={styles.topItemPrevPrice}>730.00 лв. </span></span>
-                
+    <React.Fragment>
+      <Header isStatic={true}/>
+      <main className={`${openSans.className} ${styles.main}`}>
+        <Slider images={formatImageArray(images)}/>
+        <AdvantagesList />
+        <section className={`${styles.promoContainer}`}>
+          <h2 className={styles.header}><span>Топ Оферти</span></h2>
+          <div className={`container ${styles.promoItemsContainer}`}>
+            <div className={styles.topItemContainer}>
+              <h2 className={styles.topItemHeader}>Топ Оферта</h2>
+              <Link href='#' className={styles.topItemImageContainer}>
+                <Image src='/images/products/waltuh.jfif' alt='top item' fill={true}/>
+              </Link>
+              <div className={styles.topItemContent}>
+                <span className={styles.topItemTitle}>Арнолд Уайт</span>
+                <div className={styles.topItemPriceContainer}>
+                  <span className={styles.topItemPrice}>500.00 лв. <span className={styles.topItemPrevPrice}>730.00 лв. </span></span>
+                  
+                </div>
               </div>
             </div>
+            <div className={styles.promoItemListContainer}>
+                <ItemList elements={3} items={items} />
+                <ItemList elements={3} items={items1} />
+            </div>
           </div>
-          <div className={styles.promoItemListContainer}>
-              <ItemList elements={3} items={items} />
-              <ItemList elements={3} items={items1} />
-          </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+      <Footer />
+    </React.Fragment>
   )
 }
