@@ -4,11 +4,11 @@ import styles from './AdvantagesList.module.scss';
 const AdvantagesList = () => {
 
     const data : Array<{text: string, iconSrc: string}> = [
-        { text: "Безплатна доставка до 24 часа", iconSrc: '/icons/advantages/adv-tools.png'},
-        { text: "14 дни право на връщане", iconSrc: '/icons/advantages/adv-tools.png'},
-        { text: "Гаранционен и извънгаранционен сервиз", iconSrc: '/icons/advantages/adv-tools.png'},
-        { text: "Изплащане на лизинг", iconSrc: '/icons/advantages/adv-tools.png'},
-        { text: "Проверка преди плащане", iconSrc: '/icons/advantages/adv-tools.png'}
+        { text: "Безплатна доставка до 24 часа", iconSrc: '/icons/advantages/delivery-truck.png'},
+        { text: "14 дни право на връщане", iconSrc: '/icons/advantages/14-days.png'},
+        { text: "Гаранционен и извънгаранционен сервиз", iconSrc: '/icons/advantages/tools.png'},
+        { text: "Изплащане на лизинг", iconSrc: '/icons/advantages/pay-with-hand.png'},
+        { text: "Проверка преди плащане", iconSrc: '/icons/advantages/check.png'}
     ]
 
 
