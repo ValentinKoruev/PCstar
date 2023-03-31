@@ -14,7 +14,7 @@ export default async function Home() {
   
   
   return (
-    <main className={styles.aboutContainer}>
+    <main className={`${openSans.className} ${styles.aboutContainer}`}>
         
     </main>
   )

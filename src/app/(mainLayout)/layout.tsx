@@ -13,10 +13,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
-        <Header isStatic={false}/>
-            {children}
+    <html lang="en">
+      <body>
+        <Header isStatic={false} />
+          {children}
         <Footer />
-    </>
+      </body>
+    </html>
   )
 }
