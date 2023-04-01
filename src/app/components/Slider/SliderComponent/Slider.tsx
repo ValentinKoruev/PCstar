@@ -25,6 +25,7 @@ const Slider = ({images=[]} : ISlider) => {
     }
     
     const setNewInterval = () => {
+        clearInterval(intervalId);
         const newIntervalId = setInterval(() => {
             setIsMoving(true);
             setSliderStyle({
@@ -32,7 +33,7 @@ const Slider = ({images=[]} : ISlider) => {
                 transition: `transform 450ms ease-in-out`,
             })
             setSlide(slide => slide + 1)
-        }, 4000);
+        }, 4000 + 450);
         setIntervalId(newIntervalId);
     }
 
