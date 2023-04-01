@@ -1,4 +1,111 @@
-.contactsContainer {
+@import '../../scss/mixins';
+@import '../../scss/colors';
+
+.main {
+    margin-top: 2em;
     width: 100%;
-    height: 100vh;
+
+    .contactsContainer {
+        width: 100%;
+
+        .mapSection {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            .mapContainer {
+                width: 500px;
+                height: 400px;
+            }
+            .mapTextContainer {
+                height: fit-content;
+                tr {
+                    td {
+                        vertical-align: top;
+                        padding-bottom: 0.3em;
+                        padding-right: 0.3em;
+                    }
+                    .mapInfoLabel {
+                        font-weight: 700;           
+                    }
+                }
+            }
+        }
+
+        .contactFormSection {
+            margin-top: 20vh;
+            margin-bottom: 5em;
+            .contactFormHeading {
+                margin-bottom: 2em;
+                h1 {
+                    font-size: 1.8em;
+                    text-align: center;
+                    margin-bottom: 0.3em;
+                }
+                h2 {
+                    font-size: 1.4em;
+                    font-weight: 400;
+                    text-align: center;
+                }
+
+            }
+
+            .contactForm {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                border-top: 1px $whiteSecondaryColor solid;
+                padding: 1em;
+                font-size: 0.9em;
+                input, textarea {
+                    border: 1px $whiteSecondaryColor solid;
+                }
+                input {
+                    font-size: 1em;
+                    padding: 0.8em;
+                    border-radius: 2em;
+                }
+                textarea {
+                    font-size: 1.2em;
+                    padding: 1em;
+                    border-radius: 1em;
+                }
+
+                .fieldContainer {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.3em;
+                    label {
+                        font-weight: 700;
+                    }
+                }
+
+                .infoContainer {
+                    width: 100%;
+                    @include horizontalFlex;
+
+                    gap: 1em;
+                    
+                }
+
+                .contentText {
+                    width: 100% !important;
+                    height: 200px;
+                    resize: vertical;
+                }
+
+                .submitButton {
+                    width: fit-content;
+                    padding: 1em 3em;
+                    background-color: $mainRed;
+                    color: $whiteColor;
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: $mainActiveRed;
+                    }
+                }
+            }
+        }
+    }
 }
