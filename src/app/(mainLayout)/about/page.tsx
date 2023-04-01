@@ -22,7 +22,7 @@ export default async function About() {
         <section className={`${styles.aboutSection} ${styles.aboutSection}`}>
           <div className={styles.aboutSectionText}>
             <h2>Кои сме ние?</h2>
-            <span>Фирма "PCstar" e една от водещите фирми в България  за внос и продажба на компютърна техника.</span>
+            <span>Фирма &quot;PCstar&quot; e една от водещите фирми в България  за внос и продажба на компютърна техника.</span>
             <span>Ние посвещаваме цялата си енергия, опит и професионализъм, за да доставим най-добрите решения и продукти на нашите клиенти.</span>
             <span>Нашата главна цел е задоволяването на вашата нужда от качествена техника на достъпни и изгодни цени</span>
             <span>Ние се стремим да се усъвършенстваме всеки ден.</span>
@@ -38,7 +38,7 @@ export default async function About() {
 
             <span>Разполагаме с разнообразна, специално подбрана, качествена стока.</span>
 
-            <span>Предлагаме продукти на световните лидери в IT сектора: Dell, HP, Lenovo, Fujitsu, Eizo,Wincor-Nixdorf , Samsung, LG, Toshiba, Sony, Nvidia, ATI, Nec, Elo, Symbol/Motorola, Datalogic, Zebra, Wincor-Nixdorf и др.</span>
+            <span>Предлагаме продукти на световните лидери в IT сектора: Dell, HP, Lenovo, Fujitsu, Eizo,Wincor-Nixdorf, Samsung, LG, Toshiba, Sony, Nvidia, ATI, Nec, Elo, Symbol/Motorola, Datalogic, Zebra, Wincor-Nixdorf и др.</span>
             
             <span>Гаранционният и извънгаранционният ни сервиз гарантира изправността не само за всички наши продукти, но и за вашата лична техника.</span>
             
