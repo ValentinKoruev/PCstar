@@ -14,92 +14,12 @@ import styles from './Header.module.scss'
 
 
 
-const Header = ({isStatic=false} : {isStatic?: boolean}) => {
+const Header = ({isStatic=false, computerItems} : {isStatic?: boolean, computerItems : any}) => {
 
     const [toggleDropdown, setToggleDropdown] = useState<boolean>(isStatic ? true : false);
 
     /* WILL TRANSFER THEM TO THEIR OWN JSON FILE OR WILL LOAD DYNAMICALLY FROM DB*/
-    const computerDropdown : IDropdownElement[] = [
-        { 
-            header: { text: "Компютри", href: "#"},
-            content: [
-                { text: "HP", href: '#'},
-                { text: "Dell", href: '#'},
-                { text: "Lenovo", href: '#'},
-                { text: "Fujitsu", href: '#'},
-                { text: "Мини компютри", href: '#'},
-            ] 
-        },
-        { 
-            header: { text: "Геймърски Компютри", href: "#"},
-            content: [
-                { text: "ASUS", href: '#'},
-                { text: "Dell", href: '#'},
-                { text: "Lenovo", href: '#'},
-                { text: "GIGABYTE", href: '#'},
-                { text: "Acer", href: '#'},
-            ] 
-        },
-        { 
-            header: { text: "Сървъри", href: "#"},
-            content: [
-                { text: "Dell", href: '#'},
-                { text: "Lenovo", href: '#'},
-                { text: "Fujistu", href: '#'},
-                { text: "HPE", href: '#'},
-            ] 
-        },     
-        { 
-            header: { text: "Процесори", href: "#"},
-            content: [
-                { text: "Intel i3", href: '#'},
-                { text: "Intel i5", href: '#'},
-                { text: "Intel i7", href: '#'},
-                { text: "Ryzen 3", href: '#'},
-                { text: "Ryzen 5", href: '#'},
-                { text: "Ryzen 7", href: '#'},
-            ] 
-        },  
-        { 
-            header: { text: "Видео карти", href: "#"},
-            content: [
-                { text: "ASUS", href: '#'},
-                { text: "GIGABYTE", href: '#'},
-                { text: "MSI", href: '#'},
-                { text: "ASRock", href: '#'},
-                { text: "Zotac", href: '#'},
-                { text: "EVGA", href: '#'},
-            ] 
-        }, 
-        { 
-            header: { text: "Памети", href: "#"},
-            content: [
-                { text: "DDR", href: '#'},
-                { text: "DDR2", href: '#'},
-                { text: "DDR3", href: '#'},
-                { text: "DDR4", href: '#'},
-                { text: "DDR5", href: '#'},
-            ] 
-        }, 
-        { 
-            header: { text: "HDD/SSD", href: "#"},
-            content: [
-                { text: "HDD", href: '#'},
-                { text: "SSD", href: '#'},
-                { text: "Външни HDD", href: '#'},
-            ] 
-        }, 
-        { 
-            header: { text: "Захранване", href: "#"},
-            content: [
-                { text: "be quiet!", href: '#'},
-                { text: "Super Flower", href: '#'},
-                { text: "Cooler Master", href: '#'},
-                { text: "Corsair", href: '#'},
-                { text: "COUGAR", href: '#'},
-            ] 
-        }, 
-    ] 
+    
     const laptopDropdown : IDropdownElement[] = [
         { 
             header: { text: "Лаптопи", href: "#"},
@@ -319,7 +239,7 @@ const Header = ({isStatic=false} : {isStatic?: boolean}) => {
                     </div> 
                     {
                         toggleDropdown && <ul className={styles.megaMenuOptions}>
-                            <MenuOption iconURL="/icons/desktop-pc.png" link='#' text="Компютри и компоненти" dropdownList={computerDropdown} alt="computer icon"/>
+                            <MenuOption iconURL="/icons/desktop-pc.png" link='#' text="Компютри и компоненти" dropdownList={computerItems} alt="computer icon"/>
                             <MenuOption iconURL="/icons/laptop.png" link='#' text="Лаптопи и компоненти" dropdownList={laptopDropdown} alt="laptop icon"/>
                             <MenuOption iconURL="/icons/monitor.png" link='#' text="Монитори" dropdownList={monitorDropdown} alt="monitor icon"/>
                             <MenuOption iconURL="/icons/ram.png" link='#' text="Аксесоари и периферия" dropdownList={peripheralsDropdown} alt="ram icon"/>
@@ -330,7 +250,6 @@ const Header = ({isStatic=false} : {isStatic?: boolean}) => {
                             <MenuOption iconURL="/icons/wifi-router.png" link='#' text="Мрежово оборудване" alt="router icon"/>       
                         </ul>
                     }
-                
                 </nav>
                 <nav className={styles.offerNav}>
                     <ul>
