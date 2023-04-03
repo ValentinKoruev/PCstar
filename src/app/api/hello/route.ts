@@ -1,15 +1,24 @@
 import { NextResponse } from "next/server";
-import { prisma } from "../../../../server/db/client"
+import { prisma } from "@server/db/client";
 
 
 export async function GET(request: Request) {
 
-  const items = await prisma.item.findMany({ where: {
-    categories: {has: '/test/sub'}
-  } });
+  // const items = await prisma.item.findMany({ where: {
+  //   categories: { hasSome: ['/test/sub', '/test/sub1']}
+  // } });
 
+  const categories = await prisma.category.findMany({
+    where: {
+      parent: {
+        contains: '/computers'
+      }
+    }
+  })
 
-  return NextResponse.json(items, {
+  //{parent: /^\/electronics$/}
+
+  return NextResponse.json(categories, {
     status: 200,
   })
 }
@@ -17,19 +26,23 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
 
-  let {title, price, categories} = await request.json();
+  let {title, description, price, prevPrice, categories, imageSrc, tags} = await request.json();
 
-  // let categoriesArray = JSON.parse(categories);
   price = parseFloat(price);
-  // const item = await prisma.item.create({
-  //   data: {
-  //     title,
-  //     price,
-  //     categories
-  //   }
-  // })
+  prevPrice = parseFloat(prevPrice);
+  const item = await prisma.item.create({
+    data: {
+      title,
+      description,
+      price,
+      prevPrice,
+      categories,
+      imageSrc,
+      tags
+    }
+  })
 
-  return NextResponse.json(categories, {
+  return NextResponse.json(item, {
     status: 200,
   })
 }
