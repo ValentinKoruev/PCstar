@@ -6,7 +6,8 @@ import styles from './page.module.scss'
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import Slider from '@components/Slider'
-import ItemList, { IItem } from '@components/UI/ItemList'
+import ItemList from '@components/UI/ItemList'
+import { IItem } from '@components/UI/Item';
 import AdvantagesList from '@components/UI/AdvantagesList';
 
 import { Open_Sans } from 'next/font/google';
