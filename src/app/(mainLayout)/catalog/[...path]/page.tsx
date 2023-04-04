@@ -7,6 +7,7 @@ import { IItem } from "@components/UI/Item";
 
 import styles from './page.module.scss'
 import Item from "@components/UI/Item";
+import ItemSideMenu from '@components/UI/ItemSideMenu';
 
 
 const findItems = async (query : string, category : string) => {
@@ -79,9 +80,10 @@ export default async function Page({
         <span>{`Начало > ${parentCategory ? `${parentCategory.title} > ${category.title}` : category.title}`}</span>
         <span>{searchParams.query}</span>
         <div className={styles.mainContainer}>
-            <aside className={styles.sideMenu}>
+            {/* <aside className={styles.sideMenu}>
                 <Link href={`/catalog${category.category}?query=HP`}>test</Link>
-            </aside>
+            </aside> */}
+            <ItemSideMenu category={category}/>
             <section className={styles.itemsSection}>
                 <h1 className={styles.categoryTitle}>{category.title}</h1>
                 <ul className={styles.itemList}>
