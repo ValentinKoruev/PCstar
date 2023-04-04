@@ -18,7 +18,7 @@ const findItems = async (query : string, category : string) => {
                     has: category
                 },
                 tags: {
-                    has: query
+                    hasSome: query.split(',')
                 }
             }
         });
@@ -78,17 +78,13 @@ export default async function Page({
 
     return <main className={`container ${styles.main}`}>
         <span>{`Начало > ${parentCategory ? `${parentCategory.title} > ${category.title}` : category.title}`}</span>
-        <span>{searchParams.query}</span>
         <div className={styles.mainContainer}>
-            {/* <aside className={styles.sideMenu}>
-                <Link href={`/catalog${category.category}?query=HP`}>test</Link>
-            </aside> */}
-            <ItemSideMenu category={category}/>
+            <ItemSideMenu category={category} searchParams={searchParams.query}/>
             <section className={styles.itemsSection}>
                 <h1 className={styles.categoryTitle}>{category.title}</h1>
                 <ul className={styles.itemList}>
                     {itemsFormated.map((item, idx) => {
-                        return <Item key={item.idx} title={item.title} image={item.image} price={item.price} prevPrice={item.prevPrice} link={item.link} idx={idx} elements={item.elements}/>
+                        return <Item key={idx} title={item.title} image={item.image} price={item.price} prevPrice={item.prevPrice} link={item.link} idx={idx} elements={item.elements}/>
                     })}
                 </ul>
             </section>

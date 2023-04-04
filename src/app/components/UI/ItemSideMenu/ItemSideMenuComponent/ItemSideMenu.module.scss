@@ -1,0 +1,32 @@
+@import '../../../../scss/mixins';
+@import '../../../../scss/colors';
+
+.sideMenuContainer {
+    min-width: 250px;
+    .tagList {
+        @include resetUnorderedList($blackColor);
+        display: flex;
+        flex-direction: column;
+
+
+        .tagElement {
+            .tagContent {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                gap: 0.1em;
+
+                .checkContainer {
+                    position: relative;
+                    width: 1.2em;
+                    height: 1.2em;
+                }
+
+                .tagText {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+}
