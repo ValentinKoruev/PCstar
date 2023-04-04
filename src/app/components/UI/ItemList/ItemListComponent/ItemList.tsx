@@ -12,7 +12,7 @@ const ItemList = ({items, className, elements} : {items: Array<IItem>, className
         {
             items.map((item, idx) => {
                 return (
-                    <Item title={item.title} image={item.image} price={item.price} prevPrice={item.prevPrice} link={item.link} idx={idx} elements={elements}/>
+                    <Item key={idx} title={item.title} image={item.image} price={item.price} prevPrice={item.prevPrice} link={item.link} idx={idx} elements={elements}/>
                 )
             })
         }

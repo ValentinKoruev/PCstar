@@ -11,7 +11,7 @@ export interface IItem {
     prevPrice?: number,
     link: string,
     idx?: number,
-    elements: number
+    elements?: number
 }
 
 const getElementsClass = (elements : number) => {
@@ -27,7 +27,7 @@ const getElementsClass = (elements : number) => {
 
 
 
-const Item = ({title, image, price, prevPrice, link, idx, elements} : IItem) => {
+const Item = ({title, image, price, prevPrice, link, idx, elements=1} : IItem) => {
     return (
         <li key={idx} className={`${styles.itemCard} ${getElementsClass(elements)}`}>
             <Link className={styles.linkContainer} href={link}>
