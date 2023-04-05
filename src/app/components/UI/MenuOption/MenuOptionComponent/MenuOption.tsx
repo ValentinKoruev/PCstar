@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './MenuOption.module.scss';
@@ -13,11 +14,20 @@ export interface IMenuOption {
     text: string,
     alt: string,
     dropdownList?: Array<IDropdownElement>,
-    children?: JSX.Element
+    children?: JSX.Element,
+    setDropdown: (state: boolean) => void,
+    isStatic: boolean
 }
 
 
-const MenuOption = ({iconURL, link, text, alt, dropdownList, children} : IMenuOption) => {
+const MenuOption = ({iconURL, link, text, alt, dropdownList, setDropdown, isStatic} : IMenuOption) => {
+    const handleClick = () => {
+        console.log('anchor clicked')
+
+        if(!isStatic) setDropdown(false);
+    }
+
+   
     return (
         <li className={styles.menuContainer}>
             <Link href={link} className={styles.link}>
@@ -35,11 +45,11 @@ const MenuOption = ({iconURL, link, text, alt, dropdownList, children} : IMenuOp
                     {
                         dropdownList && <> {dropdownList.map((element, key) => {
                             return <div className={styles.dropdownListContainer} key={key}>
-                                <span className={styles.dropdownListHeader}><Link href={element.header.href}>{element.header.text}</Link></span>
+                                <span onClick={handleClick} className={styles.dropdownListHeader}><Link href={element.header.href}>{element.header.text}</Link></span>
                                 <ul className={styles.dropdownList}>
                                     <> {
                                         element.content.map((contentEl, key) => {
-                                            return <li className={styles.dropdownListElement} key={key}><Link href={contentEl.href}>{contentEl.text}</Link></li>
+                                            return <li onClick={handleClick} className={styles.dropdownListElement} key={key}><Link href={contentEl.href}>{contentEl.text}</Link></li>
                                         })
                                     }
                                     </>
