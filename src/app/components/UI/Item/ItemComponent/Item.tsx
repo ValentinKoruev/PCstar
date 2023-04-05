@@ -30,7 +30,7 @@ const getElementsClass = (elements : number) => {
 const Item = ({title, image, price, prevPrice, link, idx, elements=1} : IItem) => {
     return (
         <li key={idx} className={`${styles.itemCard} ${getElementsClass(elements)}`}>
-            <Link className={styles.linkContainer} href={link}>
+            <Link className={styles.linkContainer} href={`${link}#`}>
                 <h3 className={styles.title}>{title}</h3>
                 <div className={styles.imageContainer}>
                     <Image src={image.src} alt={image.alt} fill={true}/>
@@ -38,7 +38,7 @@ const Item = ({title, image, price, prevPrice, link, idx, elements=1} : IItem) =
             </Link>
             <div className={styles.priceBuyContainer}>
                 <div className={styles.priceContainer}>
-                    {prevPrice && <span className={styles.prevPrice}>{prevPrice.toFixed(2)} лв.</span>}
+                    {(prevPrice !== undefined && prevPrice !== 0) && <span className={styles.prevPrice}>{prevPrice.toFixed(2)} лв.</span>}
                     <span className={styles.price}>{price.toFixed(2)} лв.</span>
                 </div>
                 <Link href={link} className={styles.button}>
