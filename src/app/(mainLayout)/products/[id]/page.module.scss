@@ -1,0 +1,41 @@
+.main {
+
+    .productContainer {
+        padding-top: 2em;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        .productTitle {
+            font-size: 2.5em;
+        }
+        .productInfo {
+            display: flex;
+            flex-direction: row;
+            padding: 1em;
+            box-shadow: rgba(99, 99, 99, 0.7) 0px 2px 8px 0px;
+            .imageContainer {
+                position: relative;
+                width: 66%;
+                min-height: 400px;
+                img {
+                    padding: 1em;
+                    object-fit: cover;
+                }
+            }
+            .productContent {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                .productSpecsContainer {
+                    width: 100%;
+                    background-color: cyan;
+                }
+                .productBuyContainer {
+                    width: 100%;
+                    background-color: red;
+                }
+            }
+
+        }
+    }
+}
