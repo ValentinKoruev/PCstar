@@ -37,8 +37,28 @@ export default async function Product({params} : {params: {id: string}}) {
                     <Image src={product.imageSrc} alt={product.title} fill={true}/>
                 </div>
                 <div className={styles.productContent}>
-                    <div className={styles.productSpecsContainer}>Характериски</div>
-                    <div className={styles.productBuyContainer}>Купуване</div>
+                    <div className={styles.productDescriptionContainer}>
+                        <div>
+                            <h2>Описание:</h2>
+                            <span>{product.description}</span>
+
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                    <div className={styles.productBuySpecsContainer}>
+                        <div className={styles.productSpecsContainer}>
+                            <h2>Характеристики:</h2>
+                            <ul>
+                                {product.specs.map((spec, idx) => {
+                                    return <li key={idx}>{`> ${spec}`}</li>
+                                })}    
+                            </ul>
+                        </div>
+                        <div className={styles.productBuyContainer}>
+                            <span>{product.price.toFixed(2)}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

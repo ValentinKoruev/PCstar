@@ -19,20 +19,43 @@
                 min-height: 400px;
                 img {
                     padding: 1em;
-                    object-fit: cover;
+                    object-fit: contain;
                 }
             }
             .productContent {
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 width: 100%;
-                .productSpecsContainer {
-                    width: 100%;
-                    background-color: cyan;
+                gap: 1em;
+                h2 {
+                    font-size: 1.1em;
                 }
-                .productBuyContainer {
+               
+                .productDescriptionContainer {
                     width: 100%;
-                    background-color: red;
+
+                    display: flex;
+                }
+                .productBuySpecsContainer {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    height: 100%;
+                    .productSpecsContainer {
+                        width: 50%;
+                        height: 100%;
+                        ul {
+                            list-style: none;
+    
+                            li {
+                                font-size: 0.9em;
+                            }
+                        }      
+                    }
+                    .productBuyContainer {
+                        height: 100%;
+                    }
+                   
                 }
             }
 

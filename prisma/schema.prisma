@@ -18,6 +18,7 @@ model Item {
   price         Float     @default(0)
   prevPrice     Float?    
   description   String? 
+  specs         String[]  @default([])
   categories    String[]
   tags          String[]  @default([])
   imageSrc      String

@@ -26,14 +26,15 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
 
-  let {title, description, price, prevPrice, categories, imageSrc, tags} = await request.json();
+  let {title, description, price, prevPrice, categories, imageSrc, tags, specs} = await request.json();
 
   price = parseFloat(price);
-  prevPrice = parseFloat(prevPrice);
+  if(prevPrice) prevPrice = parseFloat(prevPrice);
   const item = await prisma.item.create({
     data: {
       title,
       description,
+      specs,
       price,
       prevPrice,
       categories,
