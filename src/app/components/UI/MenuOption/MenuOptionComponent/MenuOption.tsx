@@ -32,7 +32,7 @@ const MenuOption = ({iconURL, link, text, alt, dropdownList, setDropdown, isStat
         <li className={styles.menuContainer}>
             <Link href={link} className={styles.link}>
                 <div className={styles.iconWrapper}>
-                    <Image fill={true} src={iconURL} alt={alt} loading={'eager'}/>
+                    <Image fill={true} src={iconURL} alt={alt} loading={'eager'} sizes="24px"/>
                 </div>
                 {text}
                 <svg className={styles.svg} fill="#000000" width="16px" height="16px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">

@@ -28,7 +28,14 @@ export default async function About() {
             <span>Ние се стремим да се усъвършенстваме всеки ден.</span>
           </div>
           <div className={styles.aboutSectionImageContainer}>
-            <Image loading='eager' src='/images/about/about-img-1.jpg' alt='' fill={true}/>
+            <Image loading='eager' src='/images/about/about-img-1.jpg' alt='' fill={true} 
+              sizes="
+              (max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw
+              "
+              priority={true}
+              />
           </div>
         </section>
 
@@ -46,7 +53,14 @@ export default async function About() {
 
           </div>
           <div className={styles.aboutSectionImageContainer}>
-            <Image loading='eager' src='/images/about/about-img-2.jpg' alt='' fill={true}/>
+            <Image loading='eager' src='/images/about/about-img-2.jpg' alt='' fill={true}
+              sizes="
+              (max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw
+              "
+              priority={true}
+            />
           </div>
         </section>
 
@@ -75,7 +89,14 @@ export default async function About() {
   
           </div>
           <div className={styles.aboutSectionImageContainer}>
-            <Image loading='eager' src='/images/about/about-img-3.jpg' alt='' fill={true}/>
+            <Image loading='eager' src='/images/about/about-img-3.jpg' alt='' fill={true}
+              sizes="
+              (max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw
+              "
+              priority={true}
+            />
           </div>
         </section>
         
