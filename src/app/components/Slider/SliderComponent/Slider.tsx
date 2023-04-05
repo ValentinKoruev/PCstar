@@ -139,10 +139,10 @@ const Slider = ({images=[]} : ISlider) => {
                 </div>
                 <div className={styles.sliderButtonContainer}>
                     <button onClick={handleLeftClick} className={`${styles.sliderButton} ${styles.sliderButtonLeft}`} aria-label="Move to previous slide">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                     </button>
                     <button onClick={handleRightClick} className={`${styles.sliderButton} ${styles.sliderButtonRight}`} aria-label="Move to next slide">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </button>
                 </div>
                 <div onTransitionEnd={handleTransitionEnd} style={sliderStyle} className={styles.slide}>
