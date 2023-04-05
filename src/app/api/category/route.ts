@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
 
-    const { name, title, parent, category } = await request.json();
+    const { name, title, parent, category, tags } = await request.json();
     
     try {
         const categoryDoc = await prisma.category.create({
@@ -12,7 +12,8 @@ export async function POST(request: Request) {
                 name, 
                 title,
                 parent,
-                category
+                category,
+                tags
             }
         })
 
