@@ -1,6 +1,7 @@
 import '../globals.scss';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
+import { Suspense } from 'react';
 import { Open_Sans } from 'next/font/google';
 
 const openSans = Open_Sans({
@@ -23,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={openSans.className}>
-        <Header isStatic={false} computerItems={[]}/>
-          {children}
-        <Footer />
+        <Suspense fallback={null}>
+          <Header isStatic={false} computerItems={[]}/>
+            {children}
+          <Footer />
+        </Suspense>
       </body>
     </html>
   )

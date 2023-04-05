@@ -2,6 +2,7 @@ import '../globals.scss';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import { prisma } from '@server/db/client';
+import { Suspense } from 'react';
 
 export const metadata = {
   title: 'PC STORE',
@@ -38,9 +39,11 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header isStatic={true} computerItems={items}/>
-          {children}
-        <Footer />
+        <Suspense fallback={null}>
+          <Header isStatic={true} computerItems={items}/>
+            {children} 
+          <Footer />
+        </Suspense>
       </body>
     </html>
   )
