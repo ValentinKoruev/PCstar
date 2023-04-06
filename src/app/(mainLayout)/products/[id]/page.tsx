@@ -41,9 +41,6 @@ export default async function Product({params} : {params: {id: string}}) {
                         <div>
                             <h2>Описание:</h2>
                             <span>{product.description}</span>
-
-                        </div>
-                        <div>
                         </div>
                     </div>
                     <div className={styles.productBuySpecsContainer}>
@@ -51,12 +48,19 @@ export default async function Product({params} : {params: {id: string}}) {
                             <h2>Характеристики:</h2>
                             <ul>
                                 {product.specs.map((spec, idx) => {
-                                    return <li key={idx}>{`> ${spec}`}</li>
+                                    return <li key={idx}>{`${spec}`}</li>
                                 })}    
                             </ul>
                         </div>
                         <div className={styles.productBuyContainer}>
-                            <span>{product.price.toFixed(2)}</span>
+                            <div className={styles.productPrice}>
+                                <span>{product.price.toFixed(2)} лв.</span>
+                                {(product.prevPrice !== undefined && product.prevPrice !== null) && <span className={styles.prevPrice}>{product.prevPrice.toFixed(2)} лв.</span>}
+                            </div>
+                            <div className={styles.productBuy}>
+                                <button className={styles.cartButton}>Добави в количка</button>
+                                <button className={styles.buyButton}>Купи</button>
+                            </div>
                         </div>
                     </div>
                 </div>
