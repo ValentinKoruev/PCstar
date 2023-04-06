@@ -82,7 +82,7 @@ const Footer = () => {
                 </div>
             </nav>
             <div className={styles.copyrightContainer}>
-                <span>All Rights Reserved. Всички цени за с ДДС.</span>
+                <span>Сайтът е направен с учебна цел и не е предназначен за комерсиална употреба</span>
             </div>
         </footer>
     );
