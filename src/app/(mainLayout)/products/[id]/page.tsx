@@ -6,6 +6,7 @@ import { ObjectId } from 'mongodb'
 import styles from './page.module.scss';
 
 import { Open_Sans } from 'next/font/google';
+import AdvantagesList from '@components/UI/AdvantagesList';
 const openSans = Open_Sans({
     weight: ['400', '700'],
     subsets: ['cyrillic'],
@@ -54,8 +55,8 @@ export default async function Product({params} : {params: {id: string}}) {
                         </div>
                         <div className={styles.productBuyContainer}>
                             <div className={styles.productPrice}>
-                                <span>{product.price.toFixed(2)} лв.</span>
                                 {(product.prevPrice !== undefined && product.prevPrice !== null) && <span className={styles.prevPrice}>{product.prevPrice.toFixed(2)} лв.</span>}
+                                <span>{product.price.toFixed(2)} лв.</span>
                             </div>
                             <div className={styles.productBuy}>
                                 <button className={styles.cartButton}>Добави в количка</button>
@@ -66,6 +67,9 @@ export default async function Product({params} : {params: {id: string}}) {
                 </div>
             </div>
         </section>
+
+        <AdvantagesList />
+
       </main>
     )
   }
