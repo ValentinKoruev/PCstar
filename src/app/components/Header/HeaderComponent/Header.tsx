@@ -216,7 +216,7 @@ const Header = ({isStatic=false, computerItems} : {isStatic?: boolean, computerI
     }
 
 
-    return <header className={`${openSans.className} ${styles.header} ${!isStatic ? styles.active : ''}`}>
+    return <header className={`${styles.header} ${!isStatic ? styles.active : ''}`}>
         <div className={`container ${styles.headerContent}`}>
             <div className={styles.navTopRow}>
                 <Link href='/' className={styles.title}><h1>PCstar</h1></Link>

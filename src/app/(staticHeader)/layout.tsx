@@ -3,6 +3,14 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 import { prisma } from '@server/db/client';
 import { Suspense } from 'react';
+import { Open_Sans } from 'next/font/google';
+
+const openSans = Open_Sans({
+  weight: ['400', '700'],
+  subsets: ['cyrillic', 'latin'],
+  fallback: ['Helvetica', 'Arial', 'sans-serif']
+})
+
 
 export const metadata = {
   title: 'PC STORE',
@@ -38,7 +46,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body>
+      <body className={openSans.className}>
         <Suspense fallback={null}>
           <Header isStatic={true} computerItems={items}/>
             {children} 
