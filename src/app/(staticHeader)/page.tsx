@@ -13,7 +13,7 @@ import AdvantagesList from '@components/UI/AdvantagesList';
 import { Open_Sans } from 'next/font/google';
 const openSans = Open_Sans({
     weight: ['400', '700'],
-    subsets: ['cyrillic'],
+    subsets: ['cyrillic', 'latin'],
     fallback: ['Helvetica', 'Arial', 'sans-serif']
 }) 
 
@@ -26,10 +26,24 @@ const images = [
   {src: '/images/slider/image-6.jpg', alt: 'slider img'}
 ]
 
-const items: Array<IItem> = [
+const items: any = [
   {
     title: "Lenovo ThinkCentre M83",
-    image: {src: '/images/products/pc-1.jpg', alt: "item image"},
+    image: {src: '/images/products/computers/dell_Vostro_3910_MT.webp', alt: "item image"},
+    price: 699,
+    prevPrice: 42,
+    link: '#'
+  },
+  {
+    title: "Lenovo ThinkCentre M83",
+    image: {src: '/images/products/computers/dell_Vostro_3910_MT.webp', alt: "item image"},
+    price: 699,
+    prevPrice: 42,
+    link: '#'
+  },
+  {
+    title: "Lenovo ThinkCentre M83",
+    image: {src: '/images/products/computers/dell_Vostro_3910_MT.webp', alt: "item image"},
     price: 699,
     prevPrice: 42,
     link: '#'
@@ -47,29 +61,41 @@ const items: Array<IItem> = [
     price: 699,
     prevPrice: 42,
     link: '#'
-  }
-]
-
-const items1 = [
+  },
   {
-    title: "🤓",
-    image: {src: '/images/products/nerd.jfif', alt: "item image"},
+    title: "Lenovo ThinkCentre M83",
+    image: {src: '/images/products/computers/dell_Vostro_3910_MT.webp', alt: "item image"},
     price: 699,
     prevPrice: 42,
     link: '#'
   },
   {
-    title: "Spark Knight Klee",
-    image: {src: '/images/products/klee.jpg', alt: "item image"},
-    price: 1200,
-    prevPrice: 1300,
+    title: "Lenovo ThinkCentre M83",
+    image: {src: '/images/products/computers/dell_Vostro_3910_MT.webp', alt: "item image"},
+    price: 699,
+    prevPrice: 42,
+    link: '#'
+  },
+  ,
+  {
+    title: "Lenovo ThinkCentre M83",
+    image: {src: '/images/products/pc-1.jpg', alt: "item image"},
+    price: 699,
+    prevPrice: 42,
     link: '#'
   },
   {
-    title: "Stupid rodent",
-    image: {src: '/images/products/rodent.jpg', alt: "item image"},
-    price: 100,
-    prevPrice: 80000000,
+    title: "Lenovo ThinkCentre M83",
+    image: {src: '/images/products/computers/dell_Vostro_3910_MT.webp', alt: "item image"},
+    price: 699,
+    prevPrice: 42,
+    link: '#'
+  },
+  {
+    title: "Lenovo ThinkCentre M83",
+    image: {src: '/images/products/computers/dell_Vostro_3910_MT.webp', alt: "item image"},
+    price: 699,
+    prevPrice: 42,
     link: '#'
   },
 ]
@@ -93,28 +119,35 @@ export default async function Home() {
       <main className={`${openSans.className} ${styles.main}`}>
         <Slider images={formatImageArray(images)}/>
         <AdvantagesList />
-        <section className={`${styles.promoContainer}`}>
-          <h2 className={styles.header}><span>Топ Оферти</span></h2>
-          <div className={`container ${styles.promoItemsContainer}`}>
-            <div className={styles.topItemContainer}>
-              <h2 className={styles.topItemHeader}>Топ Оферта</h2>
-              <Link href='#' className={styles.topItemImageContainer}>
-                <Image src='/images/products/waltuh.jfif' alt='top item' fill={true}/>
-              </Link>
-              <div className={styles.topItemContent}>
-                <span className={styles.topItemTitle}>Арнолд Уайт</span>
-                <div className={styles.topItemPriceContainer}>
-                  <span className={styles.topItemPrice}>500.00 лв. <span className={styles.topItemPrevPrice}>730.00 лв. </span></span>
-                  
-                </div>
-              </div>
-            </div>
+        <section className={`container ${styles.promoContainer}`}>
+          <h1 className={styles.promoHeading}>Топ оферти</h1>
+          <div className={`${styles.promoItemsContainer}`}>
+
             <div className={styles.promoItemListContainer}>
-                <ItemList elements={3} items={items} />
-                <ItemList elements={3} items={items1} />
+                <ItemList elements={5} items={items} />
             </div>
           </div>
         </section>
+        <section className={styles.infoSection}>
+          <div className={`container ${styles.infoContent}`}>
+            <h1 className={styles.infoHeading}>Защо да ни изберете?</h1>
+            <div className={styles.infoList}>
+              <div className={styles.infoElement}>
+                <h2>10+</h2>
+                <span>години професионален опит</span>
+              </div>
+              <div className={styles.infoElement}>
+                <h2>500+</h2>
+                <span>качествени продукти</span>
+              </div>
+              <div className={styles.infoElement}>
+                <h2>1000+</h2>
+                <span>доволни клиенти</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className={styles.aboutSection}></section>
       </main>
     </React.Fragment>
   )

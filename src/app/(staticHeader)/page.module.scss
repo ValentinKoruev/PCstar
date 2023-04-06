@@ -9,28 +9,20 @@
   .promoContainer {
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    .header {
+    padding-bottom: 5em;
+    width: 100%;
+    gap: 10px;
+    .promoHeading {
+      width: 100%;
       font-size: 2em;
-      text-align: center;
-      padding: 1em; 
-      background-color: $blackColor;
-      span {
-        background: #FF416C;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
+      padding: 0.2em 0em;
     } 
   
     .promoItemsContainer {
       width: 100%;
       display: flex;
       gap: 10px;
-  
+      border-top: 1px $mainRed solid;
       .topItemContainer {
         position: relative;
         width: 33%;
@@ -92,11 +84,43 @@
           display: flex;
           flex-direction: column;
           gap: 10px;
-          width: 66%;
+          width: 100%;
           color: $blackColor;
           background-color: $whiteColor;
         }
     }
     
+  }
+
+  .infoSection {
+    width: 100%;
+    padding: 5vh;
+    background-color: $mainRed;
+    color: $whiteColor;
+
+    .infoContent{
+      .infoHeading {
+        text-align: center;
+        font-size: 3em;
+      }
+      .infoList {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: 6em 0;
+  
+        .infoElement {
+          width: 33%;
+          text-align: center;
+          h2 {
+            font-size: 3em;
+          }
+          span {
+            font-size: 1.5em;
+          }
+        }
+      }
+    }
   }
 }
