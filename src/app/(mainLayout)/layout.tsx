@@ -49,7 +49,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={openSans.className}>
         <Suspense fallback={null}>
-          <Header isStatic={false} computerItems={items}/>
+          <Header computerItems={items}/>
             {children}
           <Footer />
         </Suspense>

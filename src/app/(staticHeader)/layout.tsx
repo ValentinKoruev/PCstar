@@ -49,7 +49,6 @@ export default async function RootLayout({
     <html lang="en">
       <body className={openSans.className}>
         <Suspense fallback={null}>
-          {/* <Header computerItems={items} isStatic={true}/> */}
           <StaticHeader computerItems={items}/>
             {children} 
           <Footer />
