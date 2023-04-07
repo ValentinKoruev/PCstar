@@ -191,7 +191,10 @@ li.menuContainer {
     &:hover {
         font-weight: 700;
         background-color: #f2f2f2;
+        .categoryContainer {
 
+            cursor: pointer;
+        }
         .menuDropdownContainer {       
 
             width: calc(100%);
