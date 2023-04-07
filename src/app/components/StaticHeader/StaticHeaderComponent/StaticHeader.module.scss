@@ -161,7 +161,7 @@ $backgroundColor: $whiteColor;
     
                 ul.megaMenuOptions {
                     position: absolute;
-                    
+
                     li:last-child {
                         border-bottom: 1px $whiteSecondaryColor solid;
                         border-bottom-left-radius: 15px;
@@ -184,9 +184,9 @@ $backgroundColor: $whiteColor;
                     height: 0;
                     z-index: 0;
 
-                    @media (min-width: 544px) {
+                    @media (max-width: 768px) {
+                        overflow-y: scroll;
                     }
-                    
                     @media (min-width: 768px) {
                         width: 300px;
                         height: 460px;

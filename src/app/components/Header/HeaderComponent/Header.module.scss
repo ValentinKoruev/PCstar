@@ -159,6 +159,7 @@ $backgroundColor: $whiteColor;
                 ul.megaMenuOptions {
                     position: absolute;
                     
+                    
                     li:last-child {
                         border-bottom: 1px $whiteSecondaryColor solid;
                         border-bottom-left-radius: 15px;
@@ -175,13 +176,14 @@ $backgroundColor: $whiteColor;
                             width: 300px;
                         }
                     }
-
+                    
                     display: none;
                     width: 0;
                     height: 0;
                     z-index: 0;
-
-                    @media (min-width: 544px) {
+                    
+                    @media (max-width: 768px) {
+                        overflow-y: scroll;
                     }
                     
                 }
