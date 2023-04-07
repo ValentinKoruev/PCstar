@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import MenuOption, { IDropdownElement } from '@components/UI/MenuOption';
 import { Open_Sans } from 'next/font/google';
-import { MouseEventHandler, useState } from 'react';
+import { MouseEventHandler, useEffect, useState } from 'react';
 const openSans = Open_Sans({
     weight: ['400', '700'],
     subsets: ['cyrillic'],
@@ -16,7 +16,8 @@ import styles from './Header.module.scss'
 
 const Header = ({isStatic=false, computerItems} : {isStatic?: boolean, computerItems : any}) => {
 
-    const [toggleDropdown, setToggleDropdown] = useState<boolean>(isStatic ? true : false);
+    const [toggleDropdown, setToggleDropdown] = useState<boolean>(isStatic);
+    const [staticMode, setStaticMode] = useState<boolean>(isStatic);
 
     /* WILL TRANSFER THEM TO THEIR OWN JSON FILE OR WILL LOAD DYNAMICALLY FROM DB*/
     
@@ -206,12 +207,39 @@ const Header = ({isStatic=false, computerItems} : {isStatic?: boolean, computerI
         },
     ]
 
+    useEffect(() => {
+
+        if (window.innerWidth < 786) {
+            setStaticMode(false);
+            setToggleDropdown(false);
+        } else {
+            setStaticMode(true);
+            setToggleDropdown(true);
+        }
+
+        const handleResize = () => {
+            if(window.innerWidth < 786) {
+                setStaticMode(false);
+                setToggleDropdown(false);
+            } else {
+                setStaticMode(true);
+                setToggleDropdown(true);
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, [])
+
+
     const handleMenuClick : MouseEventHandler<HTMLDivElement> = (e) => {
         e.preventDefault();
 
-        console.log('click');
-        if(!isStatic) {
+        console.log(staticMode);
+        if(!staticMode) {
             setToggleDropdown(toggleDropdown => !toggleDropdown);
+            console.log(toggleDropdown);
         }
     }
 
@@ -237,8 +265,7 @@ const Header = ({isStatic=false, computerItems} : {isStatic?: boolean, computerI
                         </svg>
                         <span>Категории</span>
                     </div> 
-                    {
-                        toggleDropdown && <ul className={styles.megaMenuOptions}>
+                        <ul className={`${styles.megaMenuOptions} ${toggleDropdown ? styles.dropwdownActive : ''}`}>
                             <MenuOption iconURL="/icons/desktop-pc.png" link='#' text="Компютри и компоненти" dropdownList={computerItems} alt="computer icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>
                             <MenuOption iconURL="/icons/laptop.png" link='#' text="Лаптопи и компоненти" dropdownList={laptopDropdown} alt="laptop icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>
                             <MenuOption iconURL="/icons/monitor.png" link='#' text="Монитори" dropdownList={monitorDropdown} alt="monitor icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>
@@ -249,7 +276,6 @@ const Header = ({isStatic=false, computerItems} : {isStatic?: boolean, computerI
                             <MenuOption iconURL="/icons/software.png" link='#' text="Софтуер" alt="software icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>
                             <MenuOption iconURL="/icons/wifi-router.png" link='#' text="Мрежово оборудване" alt="router icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>       
                         </ul>
-                    }
                 </nav>
                 <nav className={styles.offerNav}>
                     <ul>
