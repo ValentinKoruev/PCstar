@@ -27,7 +27,7 @@ const Footer = () => {
                 <div className={`container ${styles.navListsContainer}`}>
                     <div className={styles.socialsContainer}>
                         <div className={styles.socialsCol}>
-                            <span>PCstar ООД - Последвайте ни и на:</span>
+                            <span className={styles.socialsText}>PCstar ООД<br/>Последвайте ни и на:</span>
                             <ul className={styles.socialsList}>
                                 <li className={styles.socialsItem}>
                                     <a className={styles.facebookIcon} href='#'> 

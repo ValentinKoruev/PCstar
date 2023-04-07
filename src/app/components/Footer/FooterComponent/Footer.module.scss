@@ -4,22 +4,36 @@
 $textFieldBorderRadius: 2.5em;
 
 .footer {
-    margin-top: 20vh;
+    margin-top: 10vh;
     .newsletterContainer {
         background-color: $mainRed;
-        height: 150px;
+        // height: 150px;
 
         .newsletterForm {
             height: 100%;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            gap: 20px;
+            padding: 1em 0;
+            @media(min-width: 786px) {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 2.5em 0;
+            }
+            justify-content: center;
             align-items: center;
-            justify-content: space-between;
 
             .newsText {
                 color: $whiteColor;
-                font-size: 1.5em;
-                width: 40%;
+                font-size: 1.3em;
+                padding: 0em 0.5em;
+                width: 100%;
+                text-align: center;
+                @media(min-width: 786px) {
+                    width: 40%;
+                    font-size: 1.5em;
+                    text-align: left;
+                }
             }
 
             
@@ -27,11 +41,20 @@ $textFieldBorderRadius: 2.5em;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                font-size: 1em;
-                width: 50%;
+                justify-content: center;
+                font-size: 0.8em;
+                width: 90%;
+                @media(min-width: 786px) {
+                    width: 50%;
+                    font-size: 1em;
+                }
 
                 .textField {
-                    padding: 1.2rem;
+                    padding: 0.8rem;
+
+                    @media(min-width: 786px) {
+                        padding: 1.2rem;
+                    }
                     height:fit-content;
                     width: 75%;
                     border: 0;
@@ -46,7 +69,10 @@ $textFieldBorderRadius: 2.5em;
     
                 .submitButtonContainer {
                     height: fit-content;
-                    padding: 1.1rem;
+                    padding: 0.8rem;
+                    @media(min-width: 786px) {
+                        padding: 1.2rem;
+                    }
                     padding-right: 1.5rem;
                     font-size: inherit;
                     border-bottom-right-radius: $textFieldBorderRadius;
@@ -74,26 +100,45 @@ $textFieldBorderRadius: 2.5em;
     .footerNav {
         background-color: $blackActiveColor;
         width: 100%;
-        height: 50vh;
+        padding-bottom: 10vh;
         .navListsContainer {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             height: 100%;
             width: 100%;
+            gap: 2em;
 
+            @media(min-width: 786px) {
+                flex-direction: row;
+                align-items: flex-start;
+            }
             padding-top: 1.5em;
             
             .socialsContainer {
                 color: $whiteColor;
-                width: 40%;
+                
+                width: 100%;
                 height: 100%;
+                
+                @media(min-width: 786px) {
+                    width: 40%;
+                }
                 .socialsCol {
-                    width: fit-content;
+                    width: 100%;
                     height: 100%;
 
                     display: flex;
                     flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
                     gap: 10px;
+
+                    .socialsText {
+                        font-size: 1.2em;
+                        text-align: center;
+                    }
 
                     .socialsList {
                         display: flex;
@@ -155,21 +200,31 @@ $textFieldBorderRadius: 2.5em;
                 flex-direction: row;
                 width: 100%;
                 justify-content: center;
-                gap: 30px;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 0em 1em;
                 .navList {
                     color: $whiteColor;
 
                     .navHeading {
                         color: inherit;
                         font-weight: 400;
-                        font-size: 1.2em;
+                        font-size: 1em;
                         margin-bottom: 5px;
+                        @media(min-width: 786px) {
+                            font-size: 1.2em;
+                            
+                        }
                     }
                     .navLinks {
                         @include resetUnorderedList(inherit);
                         line-height: 1.8em;
-                        font-size: 1em;
                         font-weight: 300;
+                        font-size: 0.85em;
+                        @media(min-width: 786px) {
+                            font-size: 1em;   
+                        }
                     }
                 }
 
@@ -184,5 +239,9 @@ $textFieldBorderRadius: 2.5em;
         padding: 1em;
         text-align: center;
         color: $whiteColor;
+        font-size: 0.8em;
+        @media (min-width: 786px) {
+            font-size: 1em;
+        }
     }
 }
