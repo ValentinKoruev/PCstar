@@ -12,8 +12,8 @@ $backgroundColor: $whiteColor;
     @media (min-width: 544px) {
     }
     @media (min-width: 768px) {
-        position: static;
         box-shadow: none;
+        position: static;
     }
     
     &.active {
@@ -104,7 +104,7 @@ $backgroundColor: $whiteColor;
             }
     
             nav.megaMenuNav {
-                position: relative;
+
                 
                 width: fit-content;
                 height: fit-content;
@@ -147,6 +147,13 @@ $backgroundColor: $whiteColor;
                             fill: $whiteColor;
                         }
                     }
+
+                    &:hover {
+                        cursor: pointer;
+                        @media(min-width: 768px) {
+                            cursor: default;
+                        }
+                    }
                 }
     
     
@@ -165,16 +172,21 @@ $backgroundColor: $whiteColor;
                         display: flex;
                         flex-direction: column;
                         z-index: 1000;
+                        @media (min-width: 768px) {
+                            width: 300px;
+                        }
                     }
 
                     display: none;
                     width: 0;
                     height: 0;
                     z-index: 0;
+
                     @media (min-width: 544px) {
                     }
+                    
                     @media (min-width: 768px) {
-                        width: 100%;
+                        width: 300px;
                         height: 460px;
                         display: flex;
                         flex-direction: column;

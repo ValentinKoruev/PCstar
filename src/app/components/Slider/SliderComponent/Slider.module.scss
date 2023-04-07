@@ -9,10 +9,16 @@ section.sliderContainer {
     height: 460px;
 
     .whiteSpace {
-        width: 25%;
-        height: 100%;
-        min-width: 300px;
-        z-index: -1;
+        @media (min-width: 544px) {
+            width: 0;
+            height: 0;
+        }
+        @media (min-width: 768px) {
+            width: 25%;
+            height: 100%;
+            min-width: 300px;
+            z-index: -1;
+        }
     }
     
     .slider {
