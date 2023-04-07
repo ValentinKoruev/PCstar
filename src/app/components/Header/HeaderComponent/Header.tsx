@@ -14,7 +14,7 @@ import styles from './Header.module.scss'
 
 
 
-const Header = ({isStatic=false, computerItems} : {isStatic?: boolean, computerItems : any}) => {
+const Header = ({computerItems} : {computerItems : any}) => {
 
     const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
 
@@ -209,13 +209,10 @@ const Header = ({isStatic=false, computerItems} : {isStatic?: boolean, computerI
     const handleMenuClick : MouseEventHandler<HTMLDivElement> = (e) => {
         e.preventDefault();
         
-        if(window.innerWidth < 786 || !isStatic) {
-            setToggleDropdown(toggleDropdown => !toggleDropdown);
-            console.log(toggleDropdown);
-        }
+        setToggleDropdown(toggleDropdown => !toggleDropdown);
     }
 
-    return <header className={`${styles.header} ${!isStatic ? styles.active : ''}`}>
+    return <header className={`${styles.header} ${styles.active}`}>
         <div className={`container ${styles.headerContent}`}>
             <div className={styles.navTopRow}>
                 <Link href='/' className={styles.title}><h1>PCstar</h1></Link>
@@ -249,15 +246,15 @@ const Header = ({isStatic=false, computerItems} : {isStatic?: boolean, computerI
                         <span>Категории</span>
                     </div> 
                         <ul className={`${styles.megaMenuOptions} ${toggleDropdown ? styles.dropwdownActive : ''}`}>
-                            <MenuOption iconURL="/icons/desktop-pc.png" link='#' text="Компютри и компоненти" dropdownList={computerItems} alt="computer icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>
-                            <MenuOption iconURL="/icons/laptop.png" link='#' text="Лаптопи и компоненти" dropdownList={laptopDropdown} alt="laptop icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>
-                            <MenuOption iconURL="/icons/monitor.png" link='#' text="Монитори" dropdownList={monitorDropdown} alt="monitor icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>
-                            <MenuOption iconURL="/icons/ram.png" link='#' text="Аксесоари и периферия" dropdownList={peripheralsDropdown} alt="ram icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>
-                            <MenuOption iconURL="/icons/printer.png" link='#' text="Принтери и консумативи" alt="printer icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>
-                            <MenuOption iconURL="/icons/mobile-phone.png" link='#' text="Смартфони и таблети" alt="smartphone icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>
-                            <MenuOption iconURL="/icons/tv.png" link='#' text="TV, аудио и видео" alt="tv icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>
-                            <MenuOption iconURL="/icons/software.png" link='#' text="Софтуер" alt="software icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>
-                            <MenuOption iconURL="/icons/wifi-router.png" link='#' text="Мрежово оборудване" alt="router icon" setDropdown={setToggleDropdown} isStatic={isStatic}/>       
+                            <MenuOption iconURL="/icons/desktop-pc.png" link='#' text="Компютри и компоненти" dropdownList={computerItems} alt="computer icon" setDropdown={setToggleDropdown} isStatic={false}/>
+                            <MenuOption iconURL="/icons/laptop.png" link='#' text="Лаптопи и компоненти" dropdownList={laptopDropdown} alt="laptop icon" setDropdown={setToggleDropdown} isStatic={false}/>
+                            <MenuOption iconURL="/icons/monitor.png" link='#' text="Монитори" dropdownList={monitorDropdown} alt="monitor icon" setDropdown={setToggleDropdown} isStatic={false}/>
+                            <MenuOption iconURL="/icons/ram.png" link='#' text="Аксесоари и периферия" dropdownList={peripheralsDropdown} alt="ram icon" setDropdown={setToggleDropdown} isStatic={false}/>
+                            <MenuOption iconURL="/icons/printer.png" link='#' text="Принтери и консумативи" alt="printer icon" setDropdown={setToggleDropdown} isStatic={false}/>
+                            <MenuOption iconURL="/icons/mobile-phone.png" link='#' text="Смартфони и таблети" alt="smartphone icon" setDropdown={setToggleDropdown} isStatic={false}/>
+                            <MenuOption iconURL="/icons/tv.png" link='#' text="TV, аудио и видео" alt="tv icon" setDropdown={setToggleDropdown} isStatic={false}/>
+                            <MenuOption iconURL="/icons/software.png" link='#' text="Софтуер" alt="software icon" setDropdown={setToggleDropdown} isStatic={false}/>
+                            <MenuOption iconURL="/icons/wifi-router.png" link='#' text="Мрежово оборудване" alt="router icon" setDropdown={setToggleDropdown} isStatic={false}/>       
                         </ul>
                 </nav>
                 <nav className={styles.offerNav}>
