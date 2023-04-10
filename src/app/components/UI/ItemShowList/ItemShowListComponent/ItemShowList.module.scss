@@ -15,9 +15,13 @@
     .itemList {
         @include resetUnorderedList($blackColor);
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-
+        flex-direction: column;
+        
+        
+        @media(min-width: 768px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
     }
     width: 100%;
 }
