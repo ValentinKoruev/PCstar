@@ -70,6 +70,7 @@ export default async function Page({
         <div className={styles.mainContainer}>
             <ItemSideMenu category={category} searchParams={searchParams.query}/>
             <Suspense fallback={<p>loading</p>}>
+                {/* @ts-expect-error Server Component */}
                 <ItemShowList category={category} elements={3}/>
             </Suspense>
         </div>
