@@ -4,6 +4,9 @@
 $numberOfAdv: 5;
 
 .advantagesContainer {
+    @media(max-width: 768px) {
+        padding: 1em;
+    }
     .advantagesList {
         width: 100%;
         height: max-content;
@@ -34,7 +37,11 @@ $numberOfAdv: 5;
             }
             .text {
                 text-align: center;
-                height: 3.5em;
+                display: none;
+                @media(min-width: 768px) {
+                    display: inline;
+                    height: 3.5em;
+                }
             }
         }
     }
