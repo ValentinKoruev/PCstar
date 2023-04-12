@@ -7,26 +7,23 @@ import { MouseEventHandler, useState } from 'react'
 
 export interface IDropdownElement {
     header: { text: string, href: string},
-    content: Array<{text: string, href: string}>
+    content: Array<string>
 }
 
 export interface IMenuOption {
     iconURL: string,
-    link: string,
     text: string,
     alt: string,
     dropdownList?: Array<IDropdownElement>,
     children?: JSX.Element,
     setDropdown: (state: boolean) => void,
-    isStatic: boolean
 }
 
 
-const MenuOption = ({iconURL, link, text, alt, dropdownList, setDropdown, isStatic} : IMenuOption) => {
+const MenuOption = ({iconURL, text, alt, dropdownList, setDropdown} : IMenuOption) => {
     const [subDropdown, setSubDropdown] = useState<boolean>(false);
     
     const handleDropdownClick = () => {
-        console.log('anchor clicked')
 
         setDropdown(false);
     }
@@ -59,7 +56,7 @@ const MenuOption = ({iconURL, link, text, alt, dropdownList, setDropdown, isStat
                                 <ul className={styles.dropdownList}>
                                     <> {
                                         element.content.map((contentEl, key) => {
-                                            return <li onClick={handleDropdownClick} className={styles.dropdownListElement} key={key}><Link href={contentEl.href}>{contentEl.text}</Link></li>
+                                            return <li onClick={handleDropdownClick} className={styles.dropdownListElement} key={key}><Link href={`${element.header.href}?query=${contentEl}`}>{contentEl}</Link></li>
                                         })
                                     }
                                     </>

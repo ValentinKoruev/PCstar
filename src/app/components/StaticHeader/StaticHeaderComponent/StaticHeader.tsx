@@ -1,217 +1,21 @@
 'use client'
 
 import Link from 'next/link';
-import MenuOption, { IDropdownElement } from '@components/UI/MenuOption';
-import { Open_Sans } from 'next/font/google';
-import { MouseEventHandler, useEffect, useState } from 'react';
-const openSans = Open_Sans({
-    weight: ['400', '700'],
-    subsets: ['cyrillic'],
-    fallback: ['Helvetica', 'Arial', 'sans-serif']
-})
+import MenuOption from '@components/UI/MenuOption';
+import dropdowns from '@server/lib/categories';
+import { MouseEventHandler, useState } from 'react';
 
 import styles from './StaticHeader.module.scss'
 
-
-
-const StaticHeader = ({computerItems} : {computerItems : any}) => {
+const StaticHeader = () => {
 
     const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
-
-    /* WILL TRANSFER THEM TO THEIR OWN JSON FILE OR WILL LOAD DYNAMICALLY FROM DB*/
-    
-    const laptopDropdown : IDropdownElement[] = [
-        { 
-            header: { text: "Лаптопи", href: "#"},
-            content: [
-                { text: "Apple", href: '#'},
-                { text: "ASUS", href: '#'},
-                { text: "Dell", href: '#'},
-                { text: "Lenovo", href: '#'},
-                { text: "Toshiba", href: '#'},
-            ] 
-        },
-        { 
-            header: { text: "Геймърски Лаптопи", href: "#"},
-            content: [
-                { text: "ASUS", href: '#'},
-                { text: "Dell", href: '#'},
-                { text: "Lenovo", href: '#'},
-                { text: "HP", href: '#'},
-                { text: "Razer", href: '#'},
-                { text: "Alienware", href: '#'},
-            ] 
-        },
-        { 
-            header: { text: "Адаптери", href: "#"},
-            content: [
-                { text: "ASUS", href: '#'},
-                { text: "Toshiba", href: '#'},
-                { text: "Lenovo", href: '#'},
-                { text: "Acer", href: '#'},
-                { text: "HP", href: '#'},
-                { text: "Sony", href: '#'},
-                { text: "Samsung", href: '#'},
-            ] 
-        },     
-        { 
-            header: { text: "Батерии", href: "#"},
-            content: [] 
-        },  
-        { 
-            header: { text: "Видео карти", href: "#"},
-            content: [
-                { text: "ASUS", href: '#'},
-                { text: "GIGABYTE", href: '#'},
-                { text: "MSI", href: '#'},
-                { text: "ASRock", href: '#'},
-                { text: "Zotac", href: '#'},
-                { text: "EVGA", href: '#'},
-            ] 
-        }, 
-        { 
-            header: { text: "Памети", href: "#"},
-            content: [
-                { text: "DDR", href: '#'},
-                { text: "DDR2", href: '#'},
-                { text: "DDR3", href: '#'},
-                { text: "DDR4", href: '#'},
-                { text: "DDR5", href: '#'},
-            ] 
-        }, 
-        { 
-            header: { text: "HDD/SSD", href: "#"},
-            content: [
-                { text: "HDD", href: '#'},
-                { text: "SSD", href: '#'},
-                { text: "Външни HDD", href: '#'},
-            ] 
-        }, 
-        { 
-            header: { text: "Захранване", href: "#"},
-            content: [
-                { text: "Apple", href: '#'},
-                { text: "ASUS", href: '#'},
-                { text: "Dell", href: '#'},
-                { text: "Fortron", href: '#'},
-                { text: "Hama", href: '#'},
-            ] 
-        },     
-    ] 
-    const monitorDropdown : IDropdownElement[] = [
-        { 
-            header: { text: '15" - 17"', href: "#"},
-            content: [
-                { text: "AOC", href: '#'},
-                { text: "AOPEN", href: '#'},
-                { text: "ASUS", href: '#'},
-                { text: "HP", href: '#'},
-            ] 
-        },
-        { 
-            header: { text: '17" - 21"', href: "#"},
-            content: [
-                { text: "AOC", href: '#'},
-                { text: "ACER", href: '#'},
-                { text: "ASUS", href: '#'},
-                { text: "Philips", href: '#'},
-                { text: "Dell", href: '#'},
-                { text: "LG", href: '#'},
-            ] 
-        },
-        { 
-            header: { text: '21" - 24"', href: "#"},
-            content: [
-                { text: "AOC", href: '#'},
-                { text: "ACER", href: '#'},
-                { text: "ASUS", href: '#'},
-                { text: "Philips", href: '#'},
-                { text: "BenQ", href: '#'},
-                { text: "Lenovo", href: '#'},
-            ] 
-        },
-        { 
-            header: { text: '24" - 27"', href: "#"},
-            content: [
-                { text: "AOC", href: '#'},
-                { text: "ACER", href: '#'},
-                { text: "Apple", href: '#'},
-                { text: "ASUS", href: '#'},
-                { text: "Samsung", href: '#'},
-                { text: "HP", href: '#'},
-            ] 
-        },
-    ] 
-    const peripheralsDropdown : IDropdownElement[] = [
-        { 
-            header: { text: 'Мишки', href: "#"},
-            content: [
-                { text: "Logitech", href: '#'},
-                { text: "COUGAR", href: '#'},
-                { text: "Razer", href: '#'},
-                { text: "Canyon", href: '#'},
-                { text: "SteelSeries", href: '#'},
-                { text: "Trust", href: '#'},
-                { text: "Corsair", href: '#'},
-                { text: "A4TECH", href: '#'},
-            ] 
-        },
-        { 
-            header: { text: 'Клавиатури', href: "#"},
-            content: [
-                { text: "Logitech", href: '#'},
-                { text: "COUGAR", href: '#'},
-                { text: "Razer", href: '#'},
-                { text: "Canyon", href: '#'},
-                { text: "SteelSeries", href: '#'},
-                { text: "Trust", href: '#'},
-                { text: "Corsair", href: '#'},
-                { text: "A4TECH", href: '#'},
-            ] 
-        },
-        { 
-            header: { text: 'Слушалки', href: "#"},
-            content: [
-                { text: "Apple", href: '#'},
-                { text: "Sony", href: '#'},
-                { text: "JBL", href: '#'},
-                { text: "Logitech", href: '#'},
-                { text: "Hama", href: '#'},
-                { text: "Razer", href: '#'},
-                { text: "Canyon", href: '#'},
-                { text: "COUGAR", href: '#'},
-            ] 
-        },
-        { 
-            header: { text: 'Микрофони', href: "#"},
-            content: [
-                { text: "Logitech", href: '#'},
-                { text: "Razer", href: '#'},
-                { text: "Trust", href: '#'},
-                { text: "Kingston", href: '#'},
-                { text: "Hama", href: '#'},
-                { text: "A4TECH", href: '#'},
-            ] 
-        },
-        { 
-            header: { text: 'Уеб камери', href: "#"},
-            content: [
-                { text: "Logitech", href: '#'},
-                { text: "Microsoft", href: '#'},
-                { text: "Razer", href: '#'},
-                { text: "Canyon", href: '#'},
-                { text: "Trust", href: '#'},
-                { text: "A4TECH", href: '#'},
-            ] 
-        },
-    ]
 
     const handleMenuClick : MouseEventHandler<HTMLDivElement> = (e) => {
         e.preventDefault();
 
         if(window.innerWidth < 786) {
             setToggleDropdown(toggleDropdown => !toggleDropdown);
-            console.log(toggleDropdown);
         }
     }
 
@@ -220,9 +24,6 @@ const StaticHeader = ({computerItems} : {computerItems : any}) => {
         <div className={`container ${styles.headerContent}`}>
             <div className={styles.navTopRow}>
                 <Link href='/' className={styles.title}><h1>PCstar</h1></Link>
-                {/* <form className={styles.searchBox}>
-                    <input type='text'/>
-                </form> */}
                 <ul className={styles.userMenu}>
                     <li>
                         <Link href="#">
@@ -250,15 +51,15 @@ const StaticHeader = ({computerItems} : {computerItems : any}) => {
                         <span>Категории</span>
                     </div> 
                         <ul className={`${styles.megaMenuOptions} ${toggleDropdown ? styles.dropwdownActive : ''}`}>
-                            <MenuOption iconURL="/icons/desktop-pc.png" link='#' text="Компютри и компоненти" dropdownList={computerItems} alt="computer icon" setDropdown={setToggleDropdown} isStatic={true}/>
-                            <MenuOption iconURL="/icons/laptop.png" link='#' text="Лаптопи и компоненти" dropdownList={laptopDropdown} alt="laptop icon" setDropdown={setToggleDropdown} isStatic={true}/>
-                            <MenuOption iconURL="/icons/monitor.png" link='#' text="Монитори" dropdownList={monitorDropdown} alt="monitor icon" setDropdown={setToggleDropdown} isStatic={true}/>
-                            <MenuOption iconURL="/icons/ram.png" link='#' text="Аксесоари и периферия" dropdownList={peripheralsDropdown} alt="ram icon" setDropdown={setToggleDropdown} isStatic={true}/>
-                            <MenuOption iconURL="/icons/printer.png" link='#' text="Принтери и консумативи" alt="printer icon" setDropdown={setToggleDropdown} isStatic={true}/>
-                            <MenuOption iconURL="/icons/mobile-phone.png" link='#' text="Смартфони и таблети" alt="smartphone icon" setDropdown={setToggleDropdown} isStatic={true}/>
-                            <MenuOption iconURL="/icons/tv.png" link='#' text="TV, аудио и видео" alt="tv icon" setDropdown={setToggleDropdown} isStatic={true}/>
-                            <MenuOption iconURL="/icons/software.png" link='#' text="Софтуер" alt="software icon" setDropdown={setToggleDropdown} isStatic={true}/>
-                            <MenuOption iconURL="/icons/wifi-router.png" link='#' text="Мрежово оборудване" alt="router icon" setDropdown={setToggleDropdown} isStatic={true}/>       
+                            <MenuOption iconURL="/icons/desktop-pc.png" text="Компютри и компоненти" alt="computer icon" dropdownList={dropdowns.computerDropdown} setDropdown={setToggleDropdown}/>
+                            <MenuOption iconURL="/icons/laptop.png" text="Лаптопи и компоненти" alt="laptop icon" dropdownList={dropdowns.laptopDropdown} setDropdown={setToggleDropdown}/>
+                            <MenuOption iconURL="/icons/monitor.png" text="Монитори" alt="monitor icon" dropdownList={dropdowns.monitorDropdown}  setDropdown={setToggleDropdown}/>
+                            <MenuOption iconURL="/icons/ram.png" text="Аксесоари и периферия" alt="ram icon" dropdownList={dropdowns.peripheralsDropdown} setDropdown={setToggleDropdown}/>
+                            <MenuOption iconURL="/icons/printer.png" text="Принтери и консумативи" alt="printer icon"  dropdownList={dropdowns.printerDropdown} setDropdown={setToggleDropdown}/>
+                            <MenuOption iconURL="/icons/mobile-phone.png" text="Смартфони и таблети" alt="smartphone icon" dropdownList={dropdowns.mobileDropdown} setDropdown={setToggleDropdown}/>
+                            <MenuOption iconURL="/icons/tv.png" text="TV, аудио и видео" alt="tv icon" dropdownList={dropdowns.tvDropdown} setDropdown={setToggleDropdown}/>
+                            <MenuOption iconURL="/icons/software.png" text="Софтуер" alt="software icon" dropdownList={dropdowns.softwareDropdown} setDropdown={setToggleDropdown}/>
+                            <MenuOption iconURL="/icons/wifi-router.png" text="Мрежово оборудване" alt="router icon" dropdownList={dropdowns.networkDropdown} setDropdown={setToggleDropdown}/>       
                         </ul>
                 </nav>
                 <nav className={styles.offerNav}>
