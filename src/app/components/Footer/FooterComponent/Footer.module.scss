@@ -15,7 +15,7 @@ $textFieldBorderRadius: 2.5em;
             flex-direction: column;
             gap: 20px;
             padding: 1em 0;
-            @media(min-width: 786px) {
+            @media(min-width: 768px) {
                 flex-direction: row;
                 justify-content: space-between;
                 padding: 2.5em 0;
@@ -29,7 +29,7 @@ $textFieldBorderRadius: 2.5em;
                 padding: 0em 0.5em;
                 width: 100%;
                 text-align: center;
-                @media(min-width: 786px) {
+                @media(min-width: 768px) {
                     width: 40%;
                     font-size: 1.5em;
                     text-align: left;
@@ -44,7 +44,7 @@ $textFieldBorderRadius: 2.5em;
                 justify-content: center;
                 font-size: 0.8em;
                 width: 90%;
-                @media(min-width: 786px) {
+                @media(min-width: 768px) {
                     width: 50%;
                     font-size: 1em;
                 }
@@ -52,7 +52,7 @@ $textFieldBorderRadius: 2.5em;
                 .textField {
                     padding: 0.8rem;
 
-                    @media(min-width: 786px) {
+                    @media(min-width: 768px) {
                         padding: 1.2rem;
                     }
                     height:fit-content;
@@ -70,7 +70,7 @@ $textFieldBorderRadius: 2.5em;
                 .submitButtonContainer {
                     height: fit-content;
                     padding: 0.8rem;
-                    @media(min-width: 786px) {
+                    @media(min-width: 768px) {
                         padding: 1.2rem;
                     }
                     padding-right: 1.5rem;
@@ -110,7 +110,7 @@ $textFieldBorderRadius: 2.5em;
             width: 100%;
             gap: 2em;
 
-            @media(min-width: 786px) {
+            @media(min-width: 768px) {
                 flex-direction: row;
                 align-items: flex-start;
             }
@@ -122,7 +122,7 @@ $textFieldBorderRadius: 2.5em;
                 width: 100%;
                 height: 100%;
                 
-                @media(min-width: 786px) {
+                @media(min-width: 768px) {
                     width: 40%;
                 }
                 .socialsCol {
@@ -212,7 +212,7 @@ $textFieldBorderRadius: 2.5em;
                         font-weight: 400;
                         font-size: 1em;
                         margin-bottom: 5px;
-                        @media(min-width: 786px) {
+                        @media(min-width: 768px) {
                             font-size: 1.2em;
                             
                         }
@@ -222,7 +222,7 @@ $textFieldBorderRadius: 2.5em;
                         line-height: 1.8em;
                         font-weight: 300;
                         font-size: 0.85em;
-                        @media(min-width: 786px) {
+                        @media(min-width: 768px) {
                             font-size: 1em;   
                         }
                     }
@@ -240,7 +240,7 @@ $textFieldBorderRadius: 2.5em;
         text-align: center;
         color: $whiteColor;
         font-size: 0.8em;
-        @media (min-width: 786px) {
+        @media (min-width: 768px) {
             font-size: 1em;
         }
     }

@@ -67,7 +67,7 @@ li.menuContainer {
                 height: auto;
                 min-height: 100%;
                 padding: 0;
-                @media(min-width: 786px) {
+                @media(min-width: 768px) {
                     flex-direction: row;
                 }
 
@@ -79,7 +79,7 @@ li.menuContainer {
             }
         }
 
-        @media(max-width: 786px) {
+        @media(max-width: 768px) {
             &.active {
                 position: relative;
                 flex-direction: row;
