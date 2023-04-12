@@ -33,7 +33,7 @@ const ItemSideMenu = (
                     <li className={styles.tagElement} key={idx} >
                         <Link className={styles.tagContent} href={findHref(searchParams, tag, category)}>
                             <div className={styles.checkContainer}>
-                                <Image src={searchParams?.split(',').includes(tag) ? '/icons/misc/checked.png' : '/icons/misc/unchecked.png'} alt='checkbox' fill={true} sizes="1.2em"/>
+                                <Image loading='eager' src={searchParams?.split(',').includes(tag) ? '/icons/misc/checked.png' : '/icons/misc/unchecked.png'} alt='checkbox' fill={true} sizes="1.2em"/>
                             </div>
                             <span className={styles.tagText}>{tag}</span>
                         </Link>
