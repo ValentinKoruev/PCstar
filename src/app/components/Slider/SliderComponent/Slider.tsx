@@ -132,7 +132,7 @@ const Slider = ({images=[]} : ISlider) => {
                     <div className={styles.slideSelectButtonContainer}>
                         {
                             imagesWithoutDuplicates.map((image, idx) => {
-                                return <button className={calculateSlide(slide) == idx + 1 ? styles.slideSelectButtonActive : styles.slideSelectButton} key={idx+1} onClick={() => handleSlideSelectClick(idx+1)} />
+                                return <button className={calculateSlide(slide) == idx + 1 ? styles.slideSelectButtonActive : styles.slideSelectButton} key={idx+1} onClick={() => handleSlideSelectClick(idx+1)} aria-label={`Move to slide ${idx+1}`}/>
                             })
                         }
                     </div>

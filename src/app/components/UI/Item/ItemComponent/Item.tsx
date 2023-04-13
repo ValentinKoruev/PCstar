@@ -31,7 +31,7 @@ const Item = ({title, image, price, prevPrice, link, idx, elements=1} : IItem) =
     return (
         <li key={idx} className={`${styles.itemCard} ${getElementsClass(elements)}`}>
             <Link className={styles.linkContainer} href={`${link}#`}>
-                <h3 className={styles.title}>{title}</h3>
+                <span className={styles.title}>{title}</span>
                 <div className={styles.imageContainer}>
                     <Image src={image.src} alt={image.alt} fill={true}/>
                 </div>
