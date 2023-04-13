@@ -2,7 +2,8 @@
 
 import Item from '@components/UI/Item/ItemComponent/Item';
 import styles from './ItemShowList.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export type ItemType = {
     id: string,
@@ -10,14 +11,29 @@ export type ItemType = {
     price: number,
     prevPrice?: number,
     imageSrc: string,
-    tags: Array<string>
+    tags?: Array<string>,
 }
 
 
-const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>, title: string, tags: Array<string>, elements: number}) => {
-    const [itemsFiltered, setItemsFitered] = useState<Array<ItemType>>(items);
-    const [tagsFilter, setTagsFilter] = useState<Array<string>>([]);
+const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>, title: string, tags?: Array<string>, elements: number}) => {
+    const searchParams = useSearchParams();
+    const query = searchParams.get('query');
+    const isValidQuery = (query : string | null) => {
+        
+        if(query === null) return false;
+        
+        return tags?.includes(query);
+    }
+
+    const [itemsFiltered, setItemsFitered] = useState<Array<ItemType>>(isValidQuery(query) ? items.filter((item) => item.tags?.includes(query as string)) : items);
+    const [tagsFilter, setTagsFilter] = useState<Array<string>>(isValidQuery(query) ? [query as string] : []);
     const [sortFilter, setSortFilter] = useState<boolean>(true); // true = descending, false = ascending
+
+    useEffect(() => {
+        setTagsFilter(isValidQuery(query) ? [query as string] : []);
+        setItemsFitered(isValidQuery(query) ? items.filter((item) => item.tags?.includes(query as string)) : items);
+    }, [query])
+
 
     const handleTagFilterClick = async (tag: string) => {
         let newTagsFilter : Array<string>;
@@ -27,7 +43,7 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
         setTagsFilter(newTagsFilter);
 
         if (newTagsFilter.length === 0) setItemsFitered(items);
-        else setItemsFitered(items.filter((item) => item.tags.some(tag => newTagsFilter.includes(tag)))); 
+        else setItemsFitered(items.filter((item) => item.tags?.some(tag => newTagsFilter.includes(tag)))); 
     }
     
     const handleSortFilterClick = (sort: boolean) => {
@@ -37,17 +53,19 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
     return (
         <section className={styles.itemsSection}>
             <aside className={styles.sideMenuContainer}>
-                <ul className={styles.tagList}>
+                {
+                    tags && <ul className={styles.tagList}>
                     {
-                    tags.map((tag, idx) => {
-                        return (
-                            <li className={styles.tagElement} key={idx} >
-                                <button onClick={() => handleTagFilterClick(tag)}>{tag}</button>
-                            </li>
-                        )
-                    })
+                        tags.map((tag, idx) => {
+                            return (
+                                <li className={styles.tagElement} key={idx} >
+                                    <button onClick={() => handleTagFilterClick(tag)}>{tag}</button>
+                                </li>
+                            )
+                        })
                     }
-                </ul>
+                    </ul>
+                }  
                 <ul>
                     <li>
                         <button onClick={() => handleSortFilterClick(false)}>Ascending order</button>
@@ -60,12 +78,9 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
             <h1 className={styles.categoryTitle}>{title}</h1>
             <ul className={styles.itemList}>
                 {
-                    sortFilter ? 
-                    itemsFiltered.sort((a, b) => b.price - a.price).map((item, idx) => {
-                        return <Item key={idx} title={item.title} image={{src: item.imageSrc, alt: item.title}} price={item.price} prevPrice={item.prevPrice ? item.prevPrice : undefined} link={`/products/${item.id}`} idx={idx} elements={elements}/>
-                    }) 
-                    :
-                    itemsFiltered.sort((a, b) => a.price - b.price).map((item, idx) => {
+                    itemsFiltered
+                    .sort((a, b) => sortFilter ? b.price - a.price : a.price - b.price)
+                    .map((item, idx) => {
                         return <Item key={idx} title={item.title} image={{src: item.imageSrc, alt: item.title}} price={item.price} prevPrice={item.prevPrice ? item.prevPrice : undefined} link={`/products/${item.id}`} idx={idx} elements={elements}/>
                     }) 
                 }

@@ -64,7 +64,7 @@ const StaticHeader = () => {
                 </nav>
                 <nav className={styles.offerNav}>
                     <ul className={styles.offerList}>
-                        <li className={styles.navEl}><Link href="#">Промоции</Link></li>
+                        <li className={styles.navEl}><Link href="/promo">Промоции</Link></li>
                         <li className={styles.navEl}><Link href="/about">За нас</Link></li>
                         <li className={styles.navEl}><Link href="/contacts">Контакти</Link></li>
                     </ul>
