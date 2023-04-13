@@ -203,13 +203,12 @@ li.menuContainer {
             @media (min-width: 768px) {
                 min-height: 100%;
                 height: min-content;
-                min-width: calc(760px - .9375rem*2);
+                min-width: 760px;
                 margin-right: auto;
                 margin-left: auto;
                 .dropdownContent {
                     background-color: $whiteColor;
                     border: 1px $whiteSecondaryColor solid;
-                    border-bottom-right-radius: 5px;
                     padding: 0.6em 2.5em;
                     
                     width: 100%;
@@ -230,14 +229,14 @@ li.menuContainer {
             
             @media (min-width: 868px) {
                 
-                min-width: calc(860px - .9375rem*2);
+                min-width: 860px;
                 
             }
             @media (min-width: 992px){
-                min-width: calc(940px - .9375rem*2);
+                min-width: 940px;
             }
             @media (min-width: 1200px) {
-                min-width: calc(1200px - .9375rem*2);
+                min-width: 1200px;
             }
 
         }

@@ -23,7 +23,7 @@ $backgroundColor: $whiteColor;
     }
     .headerContent {
         width: 100%;
-        padding-right: 0;
+        padding: 0;
         .navTopRow {
             width: 100%;
             
@@ -152,7 +152,7 @@ $backgroundColor: $whiteColor;
 
                     &:hover {
                         cursor: pointer;
-                        @media(min-width: 768px) {
+                        @media(min-width: 1200px) {
                             cursor: default;
                         }
                     }
@@ -185,9 +185,9 @@ $backgroundColor: $whiteColor;
                     z-index: 0;
 
                     @media (max-width: 768px) {
-                        overflow-y: scroll;
+                        overflow-y: auto;
                     }
-                    @media (min-width: 768px) {
+                    @media (min-width: 1200px) {
                         width: 300px;
                         height: 460px;
                         display: flex;

@@ -5,7 +5,11 @@
   display: flex;
   flex-direction: column;
 
-  gap: 10vh;
+  gap: 5em;
+
+  @media(min-width: 768px) {
+    gap: 10vh;
+  }
   .promoContainer {
     display: flex;
     flex-direction: column;
@@ -23,63 +27,7 @@
       display: flex;
       gap: 10px;
       border-top: 1px $mainRed solid;
-      .topItemContainer {
-        position: relative;
-        width: 33%;
-        min-width: 300px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        padding: 2em;
-  
-        border-style: solid;
-        border-width: 3px;
-        border-image: linear-gradient(45deg, #FF4B2B, #FF416C) 1;
-        .topItemHeader {
-          font-size: 2em;
-          font-weight: 400;
-          text-align: center;
-        }
-  
-        .topItemImageContainer {
-          position: relative;
-          width: 100%;
-          height: 50%;
-        }
-  
-        .topItemContent {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          flex-grow: 1;
-          .topItemTitle {
-            font-weight: 700;
-            font-size: 1.2em;
-          }
-  
-          .topItemPriceContainer {
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-items: flex-end;
-            align-items: center;
-  
-            .topItemPrice {
-              height: fit-content;
-              font-weight: 400;
-              color: $mainRed;
-              font-size: 1.8em;
-            }
-            .topItemPrevPrice {
-              height: fit-content;
-              font-size: 1.3rem;
-              color: #848484;
-              text-decoration: line-through;
-            }
-          }
-        }
-      }
-  
+      
       .promoItemListContainer {
           display: flex;
           flex-direction: column;

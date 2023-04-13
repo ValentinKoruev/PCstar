@@ -23,7 +23,7 @@ $backgroundColor: $whiteColor;
     }
     .headerContent {
         width: 100%;
-        padding-right: 0;
+        padding: 0;
         .navTopRow {
             width: 100%;
             
@@ -32,7 +32,7 @@ $backgroundColor: $whiteColor;
             @include horizontalFlex;
             align-items: flex-end;
             justify-content: space-between;
-            
+        
             .title {
                 color: $blackColor;
                 text-decoration: none;
@@ -183,7 +183,7 @@ $backgroundColor: $whiteColor;
                     z-index: 0;
                     
                     @media (max-width: 768px) {
-                        overflow-y: scroll;
+                        overflow-y: auto;
                     }
                     
                 }

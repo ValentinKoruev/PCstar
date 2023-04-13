@@ -14,7 +14,7 @@ const StaticHeader = () => {
     const handleMenuClick : MouseEventHandler<HTMLDivElement> = (e) => {
         e.preventDefault();
 
-        if(window.innerWidth < 786) {
+        if(window.innerWidth < 1200) {
             setToggleDropdown(toggleDropdown => !toggleDropdown);
         }
     }

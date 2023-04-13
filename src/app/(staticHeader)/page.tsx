@@ -18,12 +18,11 @@ const openSans = Open_Sans({
 }) 
 
 const images = [
-  {src: '/images/slider/image-1.jpg', alt: 'slider img'},
-  {src: '/images/slider/image-2.jpg', alt: 'slider img'},
-  {src: '/images/slider/image-3.jpg', alt: 'slider img'},
-  {src: '/images/slider/image-4.jpg', alt: 'slider img'},
-  {src: '/images/slider/image-5.jpg', alt: 'slider img'},
-  {src: '/images/slider/image-6.jpg', alt: 'slider img'}
+  {src: '/images/slider/slider-image1.png', alt: 'slider img'},
+  {src: '/images/slider/slider-image2.jpg', alt: 'slider img'},
+  {src: '/images/slider/slider-image3.jpg', alt: 'slider img'},
+  {src: '/images/slider/slider-image4.jpg', alt: 'slider img'},
+  {src: '/images/slider/slider-image5.jpg', alt: 'slider img'},
 ]
 
 const items: any = [

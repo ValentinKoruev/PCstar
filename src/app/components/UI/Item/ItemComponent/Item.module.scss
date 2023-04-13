@@ -17,6 +17,8 @@
     &:last-child {
         border-right: none;
     }
+    
+    max-width: 300px;
 
     .linkContainer {
         display: flex;
