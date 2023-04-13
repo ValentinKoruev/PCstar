@@ -10,7 +10,7 @@ import Item from "@components/UI/Item";
 import ItemSideMenu from '@components/UI/ItemSideMenu';
 import ItemShowList from '@components/UI/ItemShowList';
 import { Suspense } from 'react';
-
+import { ItemType } from '@components/UI/ItemShowList/ItemShowListComponent/ItemShowList';
 
 const findItems = async (query : string, category : string) => {
     if(query) {
@@ -56,23 +56,34 @@ export default async function Page({
 
     if(!category) notFound();
 
-    // let parentCategory = null;
-    // if(params.path.length > 1) {
-    //     parentCategory = await prisma.category.findFirst({
-    //         where: {
-    //             name: params.path[0]
-    //         }
-    //     })
-    // }
+
+    const items = await prisma.item.findMany({
+        where: {
+            categories: {
+                has: category.category
+            }, 
+        }, 
+        select: {
+            id: true,
+            title: true,
+            price: true,
+            prevPrice: true,
+            imageSrc: true,
+            tags: true
+        }
+    });
 
     return <main className={`container ${styles.main}`}>
         {/* <span>{`Начало > ${parentCategory ? `${parentCategory.title} > ${category.title}` : category.title}`}</span> */}
-        <div className={styles.mainContainer}>
+        {/* <div className={styles.mainContainer}>
             <ItemSideMenu category={category} searchParams={searchParams.query}/>
             <Suspense fallback={<p>loading</p>}>
-                {/* @ts-expect-error Server Component */}
+                
                 <ItemShowList category={category} elements={3}/>
             </Suspense>
-        </div>
+        </div> */}  
+        <ItemShowList title={category.title} items={items as Array<ItemType>} tags={category.tags} elements={3}/>
+
+
     </main>
 }
