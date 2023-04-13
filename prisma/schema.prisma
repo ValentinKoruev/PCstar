@@ -22,6 +22,7 @@ model Item {
   categories    String[]
   tags          String[]  @default([])
   imageSrc      String
+  topOffer      TopOffer?
 }
 
 model Category {
@@ -33,4 +34,12 @@ model Category {
   parent        String
   category      String    
   tags          String[]  @default([])
+}
+
+model TopOffer {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  item          Item      @relation(fields: [itemId], references: [id])
+  itemId        String    @unique @db.ObjectId
 }
