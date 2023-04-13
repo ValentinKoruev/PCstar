@@ -5,16 +5,9 @@
     margin-top: 2em;
     position: relative;
     width: 100%;
-    .mainContainer {
-        margin-top: 1em;
-        display: flex;
-        flex-direction: column;
-        padding: 1em;
-        gap: 10px;
-        
-        @media(min-width: 768px) {
-            flex-direction: row;
-            padding: 0;
-        }
+    .categoryTitle {
+        font-size: 2.5em;
+        font-weight: 400;
+        margin-bottom: 2vh;
     }
 }

@@ -12,33 +12,6 @@ import ItemShowList from '@components/UI/ItemShowList';
 import { Suspense } from 'react';
 import { ItemType } from '@components/UI/ItemShowList/ItemShowListComponent/ItemShowList';
 
-const findItems = async (query : string, category : string) => {
-    if(query) {
-        const items = await prisma.item.findMany({
-            where: {
-                categories: {
-                    has: category
-                },
-                tags: {
-                    hasSome: query.split(',')
-                }
-            }
-        });
-        return items;
-    } else {
-        const items = await prisma.item.findMany({
-            where: {
-                categories: {
-                    has: category
-                }, 
-            }
-        });
-        return items;
-    }
-
-}
-
-
 export default async function Page({
     params,
     searchParams
@@ -74,16 +47,6 @@ export default async function Page({
     });
 
     return <main className={`container ${styles.main}`}>
-        {/* <span>{`Начало > ${parentCategory ? `${parentCategory.title} > ${category.title}` : category.title}`}</span> */}
-        {/* <div className={styles.mainContainer}>
-            <ItemSideMenu category={category} searchParams={searchParams.query}/>
-            <Suspense fallback={<p>loading</p>}>
-                
-                <ItemShowList category={category} elements={3}/>
-            </Suspense>
-        </div> */}  
         <ItemShowList title={category.title} items={items as Array<ItemType>} tags={category.tags} elements={3}/>
-
-
     </main>
 }

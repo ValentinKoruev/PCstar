@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image';
 import Item from '@components/UI/Item/ItemComponent/Item';
 import styles from './ItemShowList.module.scss';
 import { useState, useEffect } from 'react';
@@ -51,41 +52,64 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
         setSortFilter(sort);
     }
     return (
-        <section className={styles.itemsSection}>
-            <aside className={styles.sideMenuContainer}>
-                {
-                    tags && <ul className={styles.tagList}>
-                    {
-                        tags.map((tag, idx) => {
-                            return (
-                                <li className={styles.tagElement} key={idx} >
-                                    <button onClick={() => handleTagFilterClick(tag)}>{tag}</button>
-                                </li>
-                            )
-                        })
-                    }
-                    </ul>
-                }  
-                <ul>
-                    <li>
-                        <button onClick={() => handleSortFilterClick(false)}>Ascending order</button>
-                    </li>
-                    <li>
-                        <button onClick={() => handleSortFilterClick(true)}>Descending order</button>
-                    </li>
-                </ul>
-            </aside>
+        <>
             <h1 className={styles.categoryTitle}>{title}</h1>
-            <ul className={styles.itemList}>
-                {
-                    itemsFiltered
-                    .sort((a, b) => sortFilter ? b.price - a.price : a.price - b.price)
-                    .map((item, idx) => {
-                        return <Item key={idx} title={item.title} image={{src: item.imageSrc, alt: item.title}} price={item.price} prevPrice={item.prevPrice ? item.prevPrice : undefined} link={`/products/${item.id}`} idx={idx} elements={elements}/>
-                    }) 
-                }
-            </ul>
-        </section>
+            <section className={styles.itemsSection}>
+                <aside className={styles.sideMenuContainer}>
+                    <span className={styles.sideMenuTitle}>Филтри</span>
+                    {
+                        tags && <div className={styles.filterContainer}>
+                            <span className={styles.filterTitle}>Производител</span>
+                            <ul className={styles.tagList}>
+                            {
+                                tags.map((tag, idx) => {
+                                    return (
+                                        <li className={styles.tagElement} key={idx} >
+                                            <button onClick={() => handleTagFilterClick(tag)}>
+                                                <Image src={tagsFilter.includes(tag) ? '/icons/misc/checked.png' : '/icons/misc/unchecked.png'} alt="check icon" width={24} height={24}/>
+                                                <span>{tag}</span>
+                                            </button>
+                                        </li>
+                                    )
+                                })
+                            }
+                            </ul>
+                        </div>
+                    }  
+                    <div className={styles.filterContainer}>
+                        <span className={styles.filterTitle}>Сортиране</span>
+                        <ul>
+                            <li>
+                                <button onClick={() => handleSortFilterClick(true)}>
+                                    <Image src={sortFilter ? '/icons/misc/checked.png' : '/icons/misc/unchecked.png'} alt="check icon" width={24} height={24}/>
+                                    <span>Намаляващ ред</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button onClick={() => handleSortFilterClick(false)}>
+                                    <Image src={!sortFilter ? '/icons/misc/checked.png' : '/icons/misc/unchecked.png'} alt="check icon" width={24} height={24}/>
+                                    <span>Нарастващ ред</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+                <div className={styles.itemsContainer}>
+                    <ul className={styles.itemList}>
+                        {
+                            itemsFiltered.length > 0 ?
+                                itemsFiltered
+                                .sort((a, b) => sortFilter ? b.price - a.price : a.price - b.price)
+                                .map((item, idx) => {
+                                    return <Item key={idx} title={item.title} image={{src: item.imageSrc, alt: item.title}} price={item.price} prevPrice={item.prevPrice ? item.prevPrice : undefined} link={`/products/${item.id}`} idx={idx} elements={elements}/>
+                                }) 
+                            :
+                            <span className={styles.noProducts}>Не бяха намерени продукти</span>
+                        }
+                    </ul>
+                </div>
+            </section>
+        </>
     )
 }
 
