@@ -18,7 +18,7 @@ const RatingCard = ({name, rating, comment} : {name: string, rating: number, com
         <div className={styles.starsContainer}>
             {
                 Array.from({length: rating}, (_, idx) => {
-                    return <Image src='/icons/misc/star.png' alt='star icon' width={24} height={24}/>
+                    return <Image key={idx} src='/icons/misc/star.png' alt='star icon' width={24} height={24}/>
                 })
             }
         </div>
