@@ -43,7 +43,7 @@ export default async function Home() {
   }
   
   const topOffers = await prisma.topOffer.findMany({
-    take: 5,
+    take: 4,
     include: {
       item: true
     }
@@ -94,7 +94,7 @@ export default async function Home() {
               </div>
               <div className={styles.infoElement}>
                 <h2>500+</h2>
-                <span>качествени продукти</span>
+                <span>висококачествени продукта</span>
               </div>
               <div className={styles.infoElement}>
                 <h2>1000+</h2>
