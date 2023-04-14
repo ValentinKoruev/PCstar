@@ -19,6 +19,27 @@ export type ItemType = {
 const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>, title: string, tags?: Array<string>, elements: number}) => {
     const searchParams = useSearchParams();
     const query = searchParams.get('query');
+
+    
+    
+    const getTags = (items : Array<ItemType>)  => {
+        
+        const tagMap = new Map();
+        for(let item of items) {
+            if(!item.tags) continue;
+            let tag = item.tags[0];
+            if (tagMap.get(tag)) {
+            tagMap.set(tag, tagMap.get(tag) + 1)
+            } else {
+                tagMap.set(tag, 1);
+            }
+        }
+        
+        return tagMap; 
+
+    }
+
+
     const isValidQuery = (query : string | null) => {
         
         if(query === null) return false;
@@ -26,13 +47,13 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
         return tags?.includes(query);
     }
 
-    const [itemsFiltered, setItemsFitered] = useState<Array<ItemType>>(isValidQuery(query) ? items.filter((item) => item.tags?.includes(query as string)) : items);
+    const [itemsFiltered, setItemsFitered] = useState<Array<ItemType>>(isValidQuery(query) ? items.filter((item) => item.tags?.includes(query as string)) : [...items]);
     const [tagsFilter, setTagsFilter] = useState<Array<string>>(isValidQuery(query) ? [query as string] : []);
     const [sortFilter, setSortFilter] = useState<boolean>(true); // true = descending, false = ascending
 
     useEffect(() => {
         setTagsFilter(isValidQuery(query) ? [query as string] : []);
-        setItemsFitered(isValidQuery(query) ? items.filter((item) => item.tags?.includes(query as string)) : items);
+        setItemsFitered(isValidQuery(query) ? items.filter((item) => item.tags?.includes(query as string)) : [...items]);
     }, [query])
 
 
@@ -58,16 +79,16 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
                 <aside className={styles.sideMenuContainer}>
                     <span className={styles.sideMenuTitle}>Филтри</span>
                     {
-                        tags && <div className={styles.filterContainer}>
+                        getTags(items) && <div className={styles.filterContainer}>
                             <span className={styles.filterTitle}>Производител</span>
                             <ul className={styles.tagList}>
                             {
-                                tags.map((tag, idx) => {
+                                Array.from(getTags(items)).map((tag, idx) => {
                                     return (
                                         <li className={styles.tagElement} key={idx} >
-                                            <button onClick={() => handleTagFilterClick(tag)}>
-                                                <Image src={tagsFilter.includes(tag) ? '/icons/misc/checked.png' : '/icons/misc/unchecked.png'} alt="check icon" width={24} height={24}/>
-                                                <span>{tag}</span>
+                                            <button onClick={() => handleTagFilterClick(tag[0])}>
+                                                <Image src={tagsFilter.includes(tag[0]) ? '/icons/misc/checked.png' : '/icons/misc/unchecked.png'} alt="check icon" width={24} height={24}/>
+                                                <span>{`${tag[0]} (${tag[1]})`}</span>
                                             </button>
                                         </li>
                                     )
@@ -98,7 +119,7 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
                     <ul className={styles.itemList}>
                         {
                             itemsFiltered.length > 0 ?
-                                itemsFiltered
+                                [...itemsFiltered]
                                 .sort((a, b) => sortFilter ? b.price - a.price : a.price - b.price)
                                 .map((item, idx) => {
                                     return <Item key={idx} title={item.title} image={{src: item.imageSrc, alt: item.title}} price={item.price} prevPrice={item.prevPrice ? item.prevPrice : undefined} link={`/products/${item.id}`} idx={idx} elements={elements}/>
