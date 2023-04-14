@@ -33,7 +33,7 @@ const Item = ({title, image, price, prevPrice, link, idx, elements=1} : IItem) =
             <Link className={styles.linkContainer} href={`${link}#`}>
                 <span className={styles.title}>{title}</span>
                 <div className={styles.imageContainer}>
-                    <Image src={image.src} alt={image.alt} fill={true}/>
+                    <Image loading='eager' src={image.src} alt={image.alt} fill={true}/>
                 </div>
             </Link>
             <div className={styles.priceBuyContainer}>
