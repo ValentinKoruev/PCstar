@@ -6,8 +6,7 @@
 .itemCard {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-
+    
     padding: 0.8em;
     
     color: inherit;
@@ -19,6 +18,10 @@
     }
     
     max-width: 300px;
+    
+    @media(min-width: 992px) {
+        gap: 10px;
+    }
 
     .linkContainer {
         display: flex;
@@ -36,7 +39,7 @@
             word-break: break-word;
             font-size: 1em;
             font-weight: 700;
-            height: 3em;
+            height: 2.5em;
         }
         
         .imageContainer {
@@ -60,10 +63,20 @@
     .priceBuyContainer {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
         color: inherit;
         min-width: fit-content;
+        height: 100%;
+        gap: 5px;
+        justify-content: space-between; 
+
+        @media(min-width: 868px) {
+            flex-direction: column;
+        }
+        
+        
+        @media (min-width: 992px){
+            flex-direction: row;
+        }
 
         .priceContainer {
             display: flex;
@@ -76,6 +89,7 @@
             }
             .prevPrice {
                 font-size: 0.8em;
+                height: 1em;
                 color: #848484;
                 text-decoration: line-through;
             }
@@ -85,8 +99,10 @@
             display: grid;
             place-items: center;
             justify-self: right;
+           
             
             padding: 0.7em;
+            width: fit-content;
             height: fit-content;
             border-radius: 5px;
             background-color: #efecec;                ;
@@ -96,6 +112,15 @@
             text-decoration: none;
 
             transition: 0.1s color ease-in-out, 0.1s background-color ease-in-out;
+
+            @media(min-width: 868px) {
+                width: 100%;
+            }
+
+
+            @media(min-width: 992px) {
+                width: fit-content;
+            }
         }
     }
 

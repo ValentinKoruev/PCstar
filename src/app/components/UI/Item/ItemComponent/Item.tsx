@@ -38,7 +38,7 @@ const Item = ({title, image, price, prevPrice, link, idx, elements=1} : IItem) =
             </Link>
             <div className={styles.priceBuyContainer}>
                 <div className={styles.priceContainer}>
-                    {(prevPrice !== undefined && prevPrice !== 0) && <span className={styles.prevPrice}>{prevPrice.toFixed(2)} лв.</span>}
+                    <span className={styles.prevPrice}>{prevPrice ? `${prevPrice.toFixed(2)}  лв.` : ''}</span>
                     <span className={styles.price}>{price.toFixed(2)} лв.</span>
                 </div>
                 <Link href={link} className={styles.button}>

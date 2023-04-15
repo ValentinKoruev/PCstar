@@ -9,46 +9,96 @@
 
 .itemsSection {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    gap: 0.5em;
+    @media(min-width: 868px) {
+        flex-direction: row;
+    }
     min-height: 80vh;    
     .sideMenuContainer {
         display: flex;
         flex-direction: column;
-        gap: 1em;
         min-width: 300px;
-        border: 1px black solid;
-        padding: 0.8em;
-        .sideMenuTitle {
-            font-size: 1.7em;
+        background-color: $mainRed;
+        max-height: 350px;
+        box-shadow: rgba(99, 99, 99, 0.7) -2px 4px 4px 0px;
+        @media(min-width: 868px) {
+            background-color: $whiteColor;
+            max-height: none;
+            box-shadow: rgba(99, 99, 99, 0.7) 0px 2px 6px 0px;
         }
 
-        .filterContainer {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            .filterTitle {
-                font-size: 1.1em;
+        .sideMenuTitleContainer {
+            background-color: $whiteColor;
+            
+            @media(min-width: 868px) {
+                background-color: $mainRed;
+            }
+            .sideMenuTitle {
+                display: block;
+                width: fit-content;
+                user-select: none;
+                color: $whiteColor;
+                background-color: $mainRed;
+                padding: 0.5rem 1rem;
+                font-size: 1.3em;
+                @media(max-width: 868px) {
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                
+                @media(min-width: 868px) {
+                    font-size: 1.7em;
+                    user-select: all;
+                }
+            }
+        }
+
+        .sideMenuContent {
+            display: none;
+           
+            border-top: 0;
+            background-color: $whiteColor;
+            overflow: auto;
+            &.active {
+                display: block;
             }
 
-            ul {
-                @include resetUnorderedList($blackColor);
+            @media(min-width: 868px) {
+                display: block;
+                border: 0;
+            }
+            
+            .filterContainer {
                 display: flex;
                 flex-direction: column;
-                gap: 1px;
-                li {
-                    button {
-                        position: relative;
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: center;
-                        background-color: $whiteColor;
-                        border: 0;
-                        padding: 0; 
-                        font-size: 1em;
-                        gap: 2px;
-                        &:hover {
-                            cursor: pointer;
+                padding: 0.8em 1em;
+                gap: 5px;
+                .filterTitle {
+                    font-size: 1.1em;
+                }
+    
+                ul {
+                    @include resetUnorderedList($blackColor);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1px;
+                    li {
+                        button {
+                            position: relative;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            background-color: $whiteColor;
+                            border: 0;
+                            padding: 0; 
+                            font-size: 1em;
+                            gap: 2px;
+                            &:hover {
+                                cursor: pointer;
+                            }
                         }
                     }
                 }
@@ -64,12 +114,14 @@
         .itemList {
             @include resetUnorderedList($blackColor);
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
             
-            
-            @media(min-width: 768px) {
+            @media(min-width: 868px) {
                 flex-direction: row;
                 flex-wrap: wrap;
+                justify-content: flex-start;
             }
         }
         .noProducts {

@@ -17,6 +17,7 @@ export type ItemType = {
 
 
 const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>, title: string, tags?: Array<string>, elements: number}) => {
+    
     const searchParams = useSearchParams();
     const query = searchParams.get('query');
 
@@ -50,12 +51,19 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
     const [itemsFiltered, setItemsFitered] = useState<Array<ItemType>>(isValidQuery(query) ? items.filter((item) => item.tags?.includes(query as string)) : [...items]);
     const [tagsFilter, setTagsFilter] = useState<Array<string>>(isValidQuery(query) ? [query as string] : []);
     const [sortFilter, setSortFilter] = useState<boolean>(true); // true = descending, false = ascending
+    const [filterDropdown, setFilterDropdown] = useState<boolean>(false);
 
     useEffect(() => {
         setTagsFilter(isValidQuery(query) ? [query as string] : []);
         setItemsFitered(isValidQuery(query) ? items.filter((item) => item.tags?.includes(query as string)) : [...items]);
     }, [query])
 
+    const handleFilterShowClick = () => {
+        
+        if(window.innerWidth < 868) {
+            setFilterDropdown(!filterDropdown);
+        }
+    }
 
     const handleTagFilterClick = async (tag: string) => {
         let newTagsFilter : Array<string>;
@@ -77,42 +85,49 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
             <h1 className={styles.categoryTitle}>{title}</h1>
             <section className={styles.itemsSection}>
                 <aside className={styles.sideMenuContainer}>
-                    <span className={styles.sideMenuTitle}>Филтри</span>
-                    {
-                        getTags(items) && <div className={styles.filterContainer}>
-                            <span className={styles.filterTitle}>Производител</span>
-                            <ul className={styles.tagList}>
-                            {
-                                Array.from(getTags(items)).map((tag, idx) => {
-                                    return (
-                                        <li className={styles.tagElement} key={idx} >
-                                            <button onClick={() => handleTagFilterClick(tag[0])}>
-                                                <Image src={tagsFilter.includes(tag[0]) ? '/icons/misc/checked.png' : '/icons/misc/unchecked.png'} alt="check icon" width={24} height={24}/>
-                                                <span>{`${tag[0]} (${tag[1]})`}</span>
-                                            </button>
-                                        </li>
-                                    )
-                                })
-                            }
+                    <div className={styles.sideMenuTitleContainer}>
+                        <span className={styles.sideMenuTitle} onClick={() => handleFilterShowClick()}>
+                            
+                            Филтри
+                        </span>
+                    </div>
+                    <div className={`${styles.sideMenuContent} ${filterDropdown ? `${styles.active}` : ''}`}>
+                        {
+                            getTags(items) && <div className={styles.filterContainer}>
+                                <span className={styles.filterTitle}>Производител</span>
+                                <ul className={styles.tagList}>
+                                {
+                                    Array.from(getTags(items)).map((tag, idx) => {
+                                        return (
+                                            <li className={styles.tagElement} key={idx} >
+                                                <button onClick={() => handleTagFilterClick(tag[0])}>
+                                                    <Image src={tagsFilter.includes(tag[0]) ? '/icons/misc/checked.png' : '/icons/misc/unchecked.png'} alt="check icon" width={24} height={24}/>
+                                                    <span>{`${tag[0]} (${tag[1]})`}</span>
+                                                </button>
+                                            </li>
+                                        )
+                                    })
+                                }
+                                </ul>
+                            </div>
+                        }  
+                        <div className={styles.filterContainer}>
+                            <span className={styles.filterTitle}>Сортиране</span>
+                            <ul>
+                                <li>
+                                    <button onClick={() => handleSortFilterClick(true)}>
+                                        <Image src={sortFilter ? '/icons/misc/checked.png' : '/icons/misc/unchecked.png'} alt="check icon" width={24} height={24}/>
+                                        <span>Намаляващ ред</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={() => handleSortFilterClick(false)}>
+                                        <Image src={!sortFilter ? '/icons/misc/checked.png' : '/icons/misc/unchecked.png'} alt="check icon" width={24} height={24}/>
+                                        <span>Нарастващ ред</span>
+                                    </button>
+                                </li>
                             </ul>
                         </div>
-                    }  
-                    <div className={styles.filterContainer}>
-                        <span className={styles.filterTitle}>Сортиране</span>
-                        <ul>
-                            <li>
-                                <button onClick={() => handleSortFilterClick(true)}>
-                                    <Image src={sortFilter ? '/icons/misc/checked.png' : '/icons/misc/unchecked.png'} alt="check icon" width={24} height={24}/>
-                                    <span>Намаляващ ред</span>
-                                </button>
-                            </li>
-                            <li>
-                                <button onClick={() => handleSortFilterClick(false)}>
-                                    <Image src={!sortFilter ? '/icons/misc/checked.png' : '/icons/misc/unchecked.png'} alt="check icon" width={24} height={24}/>
-                                    <span>Нарастващ ред</span>
-                                </button>
-                            </li>
-                        </ul>
                     </div>
                 </aside>
                 <div className={styles.itemsContainer}>
