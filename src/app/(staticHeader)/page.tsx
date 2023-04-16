@@ -1,18 +1,14 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import styles from './page.module.scss'
+import { prisma } from '@server/db/client';
 
-import Header from '@components/Header';
-import Footer from '@components/Footer';
 import Slider from '@components/Slider'
-import ItemList from '@components/UI/ItemList'
 import Item from '@components/UI/Item';
 import AdvantagesList from '@components/UI/AdvantagesList';
 import CategoryPreview from '@components/UI/CategoryPreview';
-import { prisma } from '@server/db/client';
-import { Open_Sans } from 'next/font/google';
 import RatingCard from '@components/UI/RatingCard';
+
+import { Open_Sans } from 'next/font/google';
 const openSans = Open_Sans({
     weight: ['400', '700'],
     subsets: ['cyrillic', 'latin'],

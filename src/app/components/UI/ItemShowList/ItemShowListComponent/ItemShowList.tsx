@@ -29,6 +29,7 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
         for(let item of items) {
             if(!item.tags) continue;
             let tag = item.tags[0];
+            if(!tag) continue;
             if (tagMap.get(tag)) {
             tagMap.set(tag, tagMap.get(tag) + 1)
             } else {
@@ -36,6 +37,7 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
             }
         }
         
+        if(tagMap.size === 0) return undefined;
         return tagMap; 
 
     }
@@ -44,7 +46,6 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
     const isValidQuery = (query : string | null) => {
         
         if(query === null) return false;
-        
         return tags?.includes(query);
     }
 
@@ -80,6 +81,7 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
         // true = descending, false = ascending
         setSortFilter(sort);
     }
+    const tagItems = getTags(items);
     return (
         <>
             <h1 className={styles.categoryTitle}>{title}</h1>
@@ -93,11 +95,11 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
                     </div>
                     <div className={`${styles.sideMenuContent} ${filterDropdown ? `${styles.active}` : ''}`}>
                         {
-                            getTags(items) && <div className={styles.filterContainer}>
-                                <span className={styles.filterTitle}>Производител</span>
+                           tagItems && <div className={styles.filterContainer}>
+                                <span className={styles.filterTitle}>Тагове</span>
                                 <ul className={styles.tagList}>
                                 {
-                                    Array.from(getTags(items)).map((tag, idx) => {
+                                    Array.from(tagItems).sort((a,b) => a[0].localeCompare(b[0])).map((tag, idx) => {
                                         return (
                                             <li className={styles.tagElement} key={idx} >
                                                 <button onClick={() => handleTagFilterClick(tag[0])}>

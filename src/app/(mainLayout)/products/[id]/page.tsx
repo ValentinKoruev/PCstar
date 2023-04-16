@@ -4,15 +4,7 @@ import Image from 'next/image';
 import { ObjectId } from 'mongodb'
 
 import styles from './page.module.scss';
-
-import { Open_Sans } from 'next/font/google';
 import AdvantagesList from '@components/UI/AdvantagesList';
-const openSans = Open_Sans({
-    weight: ['400', '700'],
-    subsets: ['cyrillic'],
-    fallback: ['Helvetica', 'Arial', 'sans-serif']
-}) 
-
 
 
 export default async function Product({params} : {params: {id: string}}) {
@@ -30,7 +22,7 @@ export default async function Product({params} : {params: {id: string}}) {
 
   
     return (
-      <main className={`${openSans.className} ${styles.main}`}>
+      <main className={`${styles.main}`}>
         <section className={`container ${styles.productContainer}`}>
             <h1 className={styles.productTitle}>{product.title}</h1>
             <div className={styles.productInfo}>

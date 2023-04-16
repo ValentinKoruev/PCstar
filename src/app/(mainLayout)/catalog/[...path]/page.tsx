@@ -1,23 +1,13 @@
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
-
 import { prisma } from "@server/db/client"
 
-import { IItem } from "@components/UI/Item";
-
 import styles from './page.module.scss'
-import Item from "@components/UI/Item";
-import ItemSideMenu from '@components/UI/ItemSideMenu';
-import ItemShowList from '@components/UI/ItemShowList';
-import { Suspense } from 'react';
-import { ItemType } from '@components/UI/ItemShowList/ItemShowListComponent/ItemShowList';
+import ItemShowList, { ItemType } from '@components/UI/ItemShowList';
 
 export default async function Page({
     params,
-    searchParams
 } : {
     params: { path: string[]},
-    searchParams: { query: string }
 }) {
 
    

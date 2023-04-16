@@ -1,21 +1,12 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import styles from './page.module.scss'
 import AdvantagesList from '@components/UI/AdvantagesList';
 
-
-import { Open_Sans } from 'next/font/google';
-const openSans = Open_Sans({
-    weight: ['400', '700'],
-    subsets: ['cyrillic'],
-    fallback: ['Helvetica', 'Arial', 'sans-serif']
-}) 
 
 export default async function Contacts() {
   
   
   return (
-    <main className={`${openSans.className} ${styles.main}`}>
+    <main className={`${styles.main}`}>
         <div className={`container ${styles.contactsContainer}`}>
           <section className={styles.mapSection}>
             <div className={styles.mapContainer}>

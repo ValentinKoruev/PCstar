@@ -1,17 +1,10 @@
 import Link from 'next/link';
-import { Open_Sans } from 'next/font/google';
 import styles from './Footer.module.scss';
-
-const openSans = Open_Sans({
-    weight: ['300', '400', '700'],
-    subsets: ['cyrillic'],
-    fallback: ['Helvetica', 'Arial', 'sans-serif']
-})
 
 
 const Footer = () => {
     return (
-        <footer className={`${openSans.className} ${styles.footer}`}>
+        <footer className={`${styles.footer}`}>
             <div className={styles.newsletterContainer}>
                 <form className={`container ${styles.newsletterForm}`}>
                     <span className={styles.newsText}>Абонирай се за бъдещи промоции и оферти!</span>
@@ -56,15 +49,15 @@ const Footer = () => {
                         <div className={styles.navList}>
                             <h3 className={styles.navHeading}>Категории</h3>
                             <ul className={styles.navLinks}>
-                                <li><Link href='#'>Компютри и компоненти</Link></li>
-                                <li><Link href='#'>Лаптопи и компоненти</Link></li>
-                                <li><Link href='#'>Монитори</Link></li>
-                                <li><Link href='#'>Аксесоари и периферия</Link></li>
-                                <li><Link href='#'>Принтери и консумативи</Link></li>
-                                <li><Link href='#'>Смартфони и таблети</Link></li>
-                                <li><Link href='#'>ТV, аудио и видео</Link></li>
-                                <li><Link href='#'>Софтуер</Link></li>
-                                <li><Link href='#'>Мрежово оборудване</Link></li>
+                                <li><Link href='/catalog/computers'>Компютри и компоненти</Link></li>
+                                <li><Link href='/catalog/laptops'>Лаптопи и компоненти</Link></li>
+                                <li><Link href='/catalog/monitors'>Монитори</Link></li>
+                                <li><Link href='/catalog/peripherals'>Аксесоари и периферия</Link></li>
+                                <li><Link href='/catalog/printers'>Принтери и консумативи</Link></li>
+                                <li><Link href='/catalog/smartphones'>Смартфони и таблети</Link></li>
+                                <li><Link href='/catalog/tv-video-photo'>ТV, фото и видео</Link></li>
+                                <li><Link href='/catalog/software'>Софтуер</Link></li>
+                                <li><Link href='/catalog/networks'>Мрежово оборудване</Link></li>
                             </ul>
                         </div>
                         <div className={styles.navList}>

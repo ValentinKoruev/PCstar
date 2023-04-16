@@ -10,13 +10,13 @@ export const computerDropdown : IDropdownElement[] = [
     { 
         header: { text: "Геймърски Компютри", href: "/catalog/computers/gaming-computers"},
         content: [
-            "ASUS", "Dell", "Lenovo", "GIGABYTE", "Acer"
+            "ASUS", "Dell", "Lenovo"
         ] 
     },
     { 
         header: { text: "Сървъри", href: "/catalog/computers/servers"},
         content: [
-            "Dell", "Lenovo", "Fujitsu", "HPE"
+            "Dell", "Fujitsu", "HP"
         ] 
     },     
     { 
@@ -28,7 +28,7 @@ export const computerDropdown : IDropdownElement[] = [
     { 
         header: { text: "Видео карти", href: "/catalog/computers/graphic-cards"},
         content: [
-            "ASUS", "GIGABYTE", "MSI", "ASRock", "Zotac", "EVGA"
+            "ASUS", "GIGABYTE", "MSI", "Zotac"
         ] 
     }, 
     { 
@@ -42,13 +42,7 @@ export const computerDropdown : IDropdownElement[] = [
         content: [
             "HDD", "SSD"
         ] 
-    }, 
-    { 
-        header: { text: "Захранване", href: "/catalog/computers/power-suplies"},
-        content: [
-            "be quiet!", "Super Flower", "Cooler Master", "Corsair", "COUGAR"
-        ] 
-    },     
+    },      
 ] 
 
 
@@ -57,31 +51,24 @@ export const laptopDropdown : IDropdownElement[] = [
     { 
         header: { text: "Лаптопи", href: "/catalog/laptops/work-laptops"},
         content: [
-            "Apple", "ASUS", "Dell", "Lenovo", "Toshiba"
+            "Apple", "ASUS", "Dell", "Lenovo"
         ] 
     },
     { 
         header: { text: "Геймърски Лаптопи", href: "/catalog/laptops/gaming-laptops"},
         content: [
-            "ASUS", "Dell", "Lenovo", "HP", "Razer", "Alienware"
+            "ASUS", "Dell", "Lenovo"
         ] 
     },
     { 
         header: { text: "Адаптери", href: "/catalog/laptops/adapters"},
         content: [
-            "ASUS", "Toshiba", "Lenovo", "Acer", "HP", "Sony", "Samsung"
         ] 
     },     
     { 
         header: { text: "Батерии", href: "/catalog/laptops/laptop-battery"},
         content: [] 
-    },  
-    { 
-        header: { text: "Видео карти", href: "/catalog/laptops/graphic-cards"},
-        content: [
-            "ASUS", "GIGABYTE", "MSI", "ASRock", "Zotac", "EVGA"
-        ] 
-    }, 
+    },   
     { 
         header: { text: "Памети", href: "/catalog/laptops/memory"},
         content: [
@@ -93,13 +80,7 @@ export const laptopDropdown : IDropdownElement[] = [
         content: [
             "HDD", "SSD"
         ] 
-    }, 
-    { 
-        header: { text: "Захранване", href: "/catalog/laptops/power-suplies"},
-        content: [
-            "Apple", "ASUS", "Dell", "Fortron", "Hama"
-        ] 
-    },     
+    },    
 ] 
 
 export const monitorDropdown : IDropdownElement[] = [
