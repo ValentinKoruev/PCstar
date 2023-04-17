@@ -66,15 +66,18 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
         }
     }
 
-    const handleTagFilterClick = async (tag: string) => {
+    const handleTagFilterClick = (tag: string) => {
         let newTagsFilter : Array<string>;
-        if (tagsFilter.includes(tag)) newTagsFilter = tagsFilter.filter((tagFilter) => tagFilter !== tag)
+        if (tagsFilter.includes(tag)) 
+        newTagsFilter = tagsFilter.filter((tagFilter) => tagFilter !== tag)
         else newTagsFilter = [...tagsFilter, tag];
 
         setTagsFilter(newTagsFilter);
 
         if (newTagsFilter.length === 0) setItemsFitered(items);
-        else setItemsFitered(items.filter((item) => item.tags?.some(tag => newTagsFilter.includes(tag)))); 
+        else setItemsFitered(items.filter(
+            (item) => item.tags?.some(tag => newTagsFilter.includes(tag))
+        )); 
     }
     
     const handleSortFilterClick = (sort: boolean) => {
@@ -89,7 +92,6 @@ const ItemShowList = ({items, title, tags, elements} : {items : Array<ItemType>,
                 <aside className={styles.sideMenuContainer}>
                     <div className={styles.sideMenuTitleContainer}>
                         <span className={styles.sideMenuTitle} onClick={() => handleFilterShowClick()}>
-                            
                             Филтри
                         </span>
                     </div>

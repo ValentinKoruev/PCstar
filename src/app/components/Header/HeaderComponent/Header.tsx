@@ -49,7 +49,7 @@ const Header = () => {
                         <span>Категории</span>
                     </div>
                         <ul className={`${styles.megaMenuOptions} ${toggleDropdown ? styles.dropwdownActive : ''}`}>
-                        <MenuOption iconURL="/icons/desktop-pc.png" text="Компютри и компоненти" alt="computer icon" dropdownList={dropdowns.computerDropdown} setDropdown={setToggleDropdown}/>
+                            <MenuOption iconURL="/icons/desktop-pc.png" text="Компютри и компоненти" alt="computer icon" dropdownList={dropdowns.computerDropdown} setDropdown={setToggleDropdown}/>
                             <MenuOption iconURL="/icons/laptop.png" text="Лаптопи и компоненти" alt="laptop icon" dropdownList={dropdowns.laptopDropdown} setDropdown={setToggleDropdown}/>
                             <MenuOption iconURL="/icons/monitor.png" text="Монитори" alt="monitor icon" dropdownList={dropdowns.monitorDropdown}  setDropdown={setToggleDropdown}/>
                             <MenuOption iconURL="/icons/ram.png" text="Аксесоари и периферия" alt="ram icon" dropdownList={dropdowns.peripheralsDropdown} setDropdown={setToggleDropdown}/>
