@@ -27,7 +27,7 @@ export default async function Product({params} : {params: {id: string}}) {
             <h1 className={styles.productTitle}>{product.title}</h1>
             <div className={styles.productInfo}>
                 <div className={styles.imageContainer}>
-                    <Image priority src={product.imageSrc} alt={product.title} fill={true}/>
+                    <Image loading='eager' src={product.imageSrc} alt={product.title} fill={true}/>
                 </div>
                 <div className={styles.productContent}>
                     <div className={styles.productDescriptionContainer}>
