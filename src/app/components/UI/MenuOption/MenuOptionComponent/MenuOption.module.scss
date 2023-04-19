@@ -151,6 +151,11 @@ li.menuContainer {
                         text-decoration: none;
                         color: $mainRed;
                         font-size: 1em;
+                        font-weight: 400;
+
+                        @media(min-width: 768px) {
+                            font-weight: 700;
+                        }
 
                         &:hover {
                             text-decoration: underline;

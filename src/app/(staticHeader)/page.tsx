@@ -61,7 +61,7 @@ export default async function Home() {
             <CategoryPreview title='Периферия и аксесоари' link='/catalog/peripherals' imageSrc='/images/previews/peripherals_preview.jpg'/>
             <CategoryPreview title='Принтери и консумативи' link='/catalog/printers' imageSrc='/images/previews/printer_preview.webp'/>
             <CategoryPreview title='Смартфони и таблети' link='/catalog/mobile' imageSrc='/images/previews/mobile_preview.jpg'/>
-            <CategoryPreview title='TV, фото и видео' link='/catalog/tv-video-photo' imageSrc='/images/previews/tv_preview.jpg'/>
+            <CategoryPreview title='TV, фото и видео' link='/catalog/tv-photo-video' imageSrc='/images/previews/tv_preview.jpg'/>
             <CategoryPreview title='Софтуер' link='/catalog/software' imageSrc='/images/previews/software_preview.jpg'/>
             <CategoryPreview title='Мрежово оборудване' link='/catalog/network' imageSrc='/images/previews/network_preview.webp'/>
           

@@ -20,10 +20,8 @@ const AdvantagesList = () => {
                         return (
                             <li key={idx} className={styles.advantagesElement}>
                                 <div className={styles.imageContainer}>
-                                    <Image priority src={element.iconSrc} alt={element.text} fill={true}
-                                        sizes="
-                                        32px
-                                        "
+                                    <Image loading='eager' src={element.iconSrc} alt={element.text} fill={true}
+                                        sizes="32px"
                                     />
                                 </div>
                                 <span className={styles.text}>{element.text}</span>

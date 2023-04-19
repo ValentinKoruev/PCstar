@@ -87,25 +87,21 @@ export const monitorDropdown : IDropdownElement[] = [
     { 
         header: { text: '15" - 17"', href: "/catalog/monitors/15-17"},
         content: [
-            "AOC", "AOPEN", "ASUS", "HP"
         ] 
     },
     { 
         header: { text: '17" - 21"', href: "/catalog/monitors/17-21"},
         content: [
-            "AOC", "ACER", "ASUS", "Philips", "Dell", "LG"
         ] 
     },
     { 
         header: { text: '21" - 24"', href: "/catalog/monitors/21-24"},
         content: [
-            "AOC", "ACER", "ASUS", "Philips", "BenQ", "Lenovo"
         ] 
     },
     { 
         header: { text: '24" - 27"', href: "/catalog/monitors/24-27"},
         content: [
-            "AOC", "ACER", "Apple", "ASUS", "Samsung", "HP"
         ] 
     },
 ] 
@@ -127,7 +123,7 @@ export const peripheralsDropdown : IDropdownElement[] = [
     { 
         header: { text: 'Слушалки', href: "/catalog/peripherals/headphones"},
         content: [
-            "Apple", "Sony", "JBL", "Logitech", "Canyon"
+            "Sony", "JBL", "Logitech"
         ] 
     },
     { 
@@ -146,13 +142,13 @@ export const peripheralsDropdown : IDropdownElement[] = [
 
 export const printerDropdown : IDropdownElement[] = [
     { 
-        header: { text: 'Тонер касети', href: "/catalog/printers/toner-cartridges"},
+        header: { text: 'Принтери', href: "/catalog/printers/printers"},
         content: [] 
     },
     { 
-        header: { text: 'Части за принтери', href: "/catalog/printers/printer-parts"},
+        header: { text: 'Тонер касети', href: "/catalog/printers/toner-cartridges"},
         content: [] 
-    }
+    },
 ]
 
 export const mobileDropdown : IDropdownElement[] = [
@@ -172,19 +168,19 @@ export const mobileDropdown : IDropdownElement[] = [
 
 export const tvDropdown : IDropdownElement[] = [
     {
-        header: { text: "Телевизори", href:"/catalog/tv-video-photo/tv"},
+        header: { text: "Телевизори", href:"/catalog/tv-photo-video/tv"},
         content: [
             "Samsung", "Philips", "LG"
         ] 
     },
     {
-        header: { text: "Проектори", href:"/catalog/tv-video-photo/projectors"},
+        header: { text: "Фото камери", href:"/catalog/tv-photo-video/photo-cameras"},
+        content: [] 
+    },
+    {
+        header: { text: "Проектори", href:"/catalog/tv-photo-video/projectors"},
         content: [] 
     }, 
-    {
-        header: { text: "Фото камери", href:"/catalog/tv-video-photo/cameras"},
-        content: [] 
-    }
 ]
 
 export const softwareDropdown : IDropdownElement[] = [

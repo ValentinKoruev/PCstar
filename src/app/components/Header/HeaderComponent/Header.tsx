@@ -55,7 +55,7 @@ const Header = () => {
                             <MenuOption iconURL="/icons/ram.png" text="Аксесоари и периферия" alt="ram icon" dropdownList={dropdowns.peripheralsDropdown} setDropdown={setToggleDropdown}/>
                             <MenuOption iconURL="/icons/printer.png" text="Принтери и консумативи" alt="printer icon"  dropdownList={dropdowns.printerDropdown} setDropdown={setToggleDropdown}/>
                             <MenuOption iconURL="/icons/mobile-phone.png" text="Смартфони и таблети" alt="smartphone icon" dropdownList={dropdowns.mobileDropdown} setDropdown={setToggleDropdown}/>
-                            <MenuOption iconURL="/icons/tv.png" text="TV, аудио и видео" alt="tv icon" dropdownList={dropdowns.tvDropdown} setDropdown={setToggleDropdown}/>
+                            <MenuOption iconURL="/icons/tv.png" text="TV, фото и видео" alt="tv icon" dropdownList={dropdowns.tvDropdown} setDropdown={setToggleDropdown}/>
                             <MenuOption iconURL="/icons/software.png" text="Софтуер" alt="software icon" dropdownList={dropdowns.softwareDropdown} setDropdown={setToggleDropdown}/>
                             <MenuOption iconURL="/icons/wifi-router.png" text="Мрежово оборудване" alt="router icon" dropdownList={dropdowns.networkDropdown} setDropdown={setToggleDropdown}/>         
                         </ul>

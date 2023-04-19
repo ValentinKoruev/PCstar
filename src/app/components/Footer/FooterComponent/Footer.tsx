@@ -47,7 +47,7 @@ const Footer = () => {
                     </div>
                     <div className={styles.innerNavContainer}>
                         <div className={styles.navList}>
-                            <h3 className={styles.navHeading}>Категории</h3>
+                            <p className={styles.navHeading}>Категории</p>
                             <ul className={styles.navLinks}>
                                 <li><Link href='/catalog/computers'>Компютри и компоненти</Link></li>
                                 <li><Link href='/catalog/laptops'>Лаптопи и компоненти</Link></li>
@@ -61,7 +61,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className={styles.navList}>
-                            <h3 className={styles.navHeading}>За клиента</h3>
+                            <p className={styles.navHeading}>За клиента</p>
                             <ul className={styles.navLinks}>
                                 <li><Link href='#'>Често задавани въпроси</Link></li>
                                 <li><Link href='#'>Общи условия</Link></li>
