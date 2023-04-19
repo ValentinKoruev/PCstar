@@ -54,10 +54,10 @@ const Footer = () => {
                                 <li><Link href='/catalog/monitors'>Монитори</Link></li>
                                 <li><Link href='/catalog/peripherals'>Аксесоари и периферия</Link></li>
                                 <li><Link href='/catalog/printers'>Принтери и консумативи</Link></li>
-                                <li><Link href='/catalog/smartphones'>Смартфони и таблети</Link></li>
-                                <li><Link href='/catalog/tv-video-photo'>ТV, фото и видео</Link></li>
+                                <li><Link href='/catalog/mobile'>Смартфони и таблети</Link></li>
+                                <li><Link href='/catalog/tv-photo-video'>ТV, фото и видео</Link></li>
                                 <li><Link href='/catalog/software'>Софтуер</Link></li>
-                                <li><Link href='/catalog/networks'>Мрежово оборудване</Link></li>
+                                <li><Link href='/catalog/network'>Мрежово оборудване</Link></li>
                             </ul>
                         </div>
                         <div className={styles.navList}>
