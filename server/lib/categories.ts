@@ -185,7 +185,7 @@ export const tvDropdown : IDropdownElement[] = [
 
 export const softwareDropdown : IDropdownElement[] = [
     {
-        header: { text: "Операционни системи", href: "/catalog/software/operational-systems"},
+        header: { text: "Операционни системи", href: "/catalog/software/os"},
         content: []
     }
 ]
