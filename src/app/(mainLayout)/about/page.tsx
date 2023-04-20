@@ -2,6 +2,11 @@ import Image from 'next/image';
 import styles from './page.module.scss'
 
 import AdvantagesList from '@components/UI/AdvantagesList';
+import { Metadata } from 'next';
+
+export const metadata : Metadata = {
+  title: 'За нас - PCstar',
+}
 
 export default async function About() {
   return (

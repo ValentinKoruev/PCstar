@@ -1,5 +1,11 @@
+import { Metadata } from 'next';
 import styles from './page.module.scss'
 import AdvantagesList from '@components/UI/AdvantagesList';
+
+export const metadata : Metadata = {
+  title: 'Контакти - PCstar',
+}
+
 
 
 export default async function Contacts() {

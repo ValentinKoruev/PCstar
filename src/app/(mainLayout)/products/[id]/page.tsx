@@ -5,9 +5,28 @@ import { ObjectId } from 'mongodb'
 
 import styles from './page.module.scss';
 import AdvantagesList from '@components/UI/AdvantagesList';
+import { Metadata } from 'next';
+
+type Props = {
+    params: {id: string}
+}
+
+export async function generateMetadata(
+    { params }: Props,
+  ): Promise<Metadata> {
+  
+        const product = await prisma.item.findUnique({
+            where: {
+                id: params.id
+            }
+        })
+    return {
+      title: `${product?.title} - PCstar`,
+    };
+  }
 
 
-export default async function Product({params} : {params: {id: string}}) {
+export default async function Product({params} : Props) {
   
 
     if(!ObjectId.isValid(params.id)) notFound();
