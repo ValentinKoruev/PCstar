@@ -16,6 +16,10 @@ export const metadata : Metadata = {
   title: 'PCstar - онлайн магазин за техника',
   description: 'В PCstar ще намерите компютри, лаптопи, телефони, телевизори и всякаква друга техника на достъпни и изгодни цени.',
   keywords: ["PCstar", "техника", "компютри", "лаптопи", "компютърни части", "геймърски компютри"],
+  robots: {
+    index: false,
+    follow: false
+  }
 }
 
 export default async function RootLayout({
