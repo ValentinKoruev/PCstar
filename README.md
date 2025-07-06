@@ -1,4 +1,4 @@
-# PCstar - School final
+# PCstar
 
 Next.js 13 e-commerce site developed for my finals.  
 
